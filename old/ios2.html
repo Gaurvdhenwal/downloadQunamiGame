@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700,300" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Download Qunami App</title>
+  <!-- Facebook Pixel Code -->
+  <script>
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ?
+          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+      n.queue = []; t = b.createElement(e); t.async = !0;
+      t.src = v; s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '919414801497495');
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" src="https://www.facebook.com/tr?id=919414801497495&ev=PageView
+    &noscript=1" />
+  </noscript>
+  <!-- End Facebook Pixel Code -->
+
+</head>
+
+<body>
+  <!-- <div class="modal_container">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            hello world
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+  <div class="modal" id="basicModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <img src="images/ic_close.svg">
+          </button>
+        </div>
+        <div class="modal-body">
+
+
+          <div class="row">
+            <div class="col-10 offset-1">
+              <img class="percent_secure" src="images/ic_percent_secure.svg">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 percent_points">
+              <ul>
+                <li>
+                  Your phone will ask you to confirm that you trust SportsUnity app
+                </li>
+                <li>
+                  Complete installation to join 3 Lakh+ users already playing on SportsUnity
+                </li>
+              </ul>
+
+            </div>
+          </div>
+          <div class="row">
+            <a type="button" class="btn got_it_button" data-dismiss="modal" onclick="downloadApp()">Got it</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container section-one">
+    <div class="header-background-holder">
+      <img class="header-background" src="images/line_with_glow.png" />
+    </div>
+    <div class="header-container">
+      <img src="images/ic_qunami_white.svg" class="logo" />
+      <h2 class="header">THE best multiplayer</h2>
+      <h2 class="header">quiz game</h2>
+      <img class="download-button-header" src="images/download_button.png" data-target="#basicModal" data-toggle="modal" />
+    </div>
+    <div class="scroll-button-cont">
+      <img class="scroll-button" src="images/ic_arrow.svg" />
+    </div>
+  </div>
+  <div class="container section-two">
+    <div class="row">
+      <div class="col-12">
+        <h2 class="feature-header">- our features -</h2>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6 feature-col">
+        <h2 class="feature-text right">Play quiz and</h2>
+        <h2 class="feature-text right">learn more</h2>
+      </div>
+      <div class="col-6">
+        <img class="feature-img img-responsive" src="images/1st_screenshot.png" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6 ">
+        <img class="feature-img img-responsive" src="images/2nd_screenshot.png" />
+      </div>
+      <div class="col-6 feature-col ">
+        <h2 class="feature-text left">Challenge</h2>
+        <h2 class="feature-text left">your friends</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6 feature-col">
+        <h2 class="feature-text right">measure your</h2>
+        <h2 class="feature-text right">knowledge</h2>
+      </div>
+      <div class="col-6 ">
+        <img class="feature-img img-responsive" src="images/3rd_screenshot.png" />
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-6">
+        <img class="download-button" src="images/download_button.png" data-target="#basicModal" data-toggle="modal" />
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script>
+    function goToAppStore() {
+      var location = window.location.search;
+      // console.log(location)
+      var locationPara = location.split('?')[1];
+      var trackobj = {}
+      locationPara = locationPara == undefined ? '' : locationPara;
+      trackobj['url_params'] = locationPara
+      // console.log(locationPara)
+      // copyToClipboard(getParameterByName(locationPara))
+      fbq('trackCustom', 'download_app_page_button_click', trackobj);
+      // window.location = "http://www.qunami.co";
+    }
+    function getParameterByName(name) {
+      name='referrer&'+name
+      console.log(name)
+      return decodeURIComponent(name)
+    }
+    // function copyToClipboard(text) {
+    //   // console.log('clip value',text)
+    //   var dummy = document.createElement("input");
+    //   document.body.appendChild(dummy);
+    //   dummy.setAttribute('value', 'referrer&' +text);
+    //   dummy.select();
+    //   document.execCommand("copy");
+    //   document.body.removeChild(dummy);
+    // }
+    window.Clipboard = (function(window, document, navigator) {
+    var textArea,
+        copy;
+
+    function isOS() {
+        return navigator.userAgent.match(/ipad|iphone/i);
+    }
+
+    function createTextArea(text) {
+        textArea = document.createElement('textArea');
+        textArea.value = text;
+        document.body.appendChild(textArea);
+    }
+
+    function selectText() {
+        var range,
+            selection;
+
+        if (isOS()) {
+            range = document.createRange();
+            range.selectNodeContents(textArea);
+            selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            textArea.setSelectionRange(0, 999999);
+        } else {
+            textArea.select();
+        }
+    }
+
+    function copyToClipboard() {
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+    }
+
+    copy = function(text) {
+        console.log("href ",text)
+        var locationPara = text.split('?')[1];
+        var newtext = 'referrer&'+locationPara
+        var utms = locationPara.split('&');
+        // console.log(newtext)
+        utms.forEach(element => {
+          console.log(element)
+          var str = element.split('=')
+          console.log("ye hai ",str,str[0],str[0] == 'friend_match')
+          if(str[0] == 'friend_match'){
+            createTextArea(str[1]);
+            selectText();
+            // copyToClipboard();
+          }
+
+        });
+        // createTextArea(newtext);
+        // selectText();
+        copyToClipboard();
+        goToAppStore();
+    };
+
+    return {
+        copy: copy
+    };
+})(window, document, navigator);
+
+    $('#myModal').on('shown.bs.modal', function () {
+      $('#myInput').trigger('focus')
+    })
+  </script>
+</body>
+
+</html>

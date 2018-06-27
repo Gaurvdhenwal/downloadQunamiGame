@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<!-- organic flow -->
+<script>
+  var loc = window.location.search;
+  console.log(loc)
+  if (loc != '') {// need to fill
+    window.location.href = "android.html"+loc //redirect to facebook campaign
+  }
+
+</script>
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700,300" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Download Qunami App</title>
+<script src="https://app.engati.com/static/js/chat_widget.js"></script>
+<!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-119799917-1', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+</head>
+
+<body>
+<div class="container section-one">
+  <div class="header-background-holder">
+    <img class="header-background" src="images/line_with_glow.png" />
+  </div>
+  <div class="header-container">
+    <img src="images/ic_qunami_white.svg" class="logo" />
+    <h2 class="header">THE best multiplayer</h2>
+    <h2 class="header">quiz game</h2>
+    <img class="download-button-header" src="images/download_button.png" data-target="#basicModal" data-toggle="modal" />
+  </div>
+ <div class="appStats-cont">
+    <div class="row">
+      <div class="col-6">
+        <h2 class="appStatsHeader">2,000+ active users</h2>
+      </div>
+      <div class="col-6">
+        <h2 class="appStatsHeader">20,000+ games played</h2>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-button-cont">
+    <a href="#scrollTo" id="scrollit"><img class="scroll-button" src="images/ic_arrow.svg" /></a>
+  </div>
+</div>
+<div class="container section-two">
+  <div class="row">
+    <div class="col-12">
+      <h2 class="feature-header" id="scrollTo">- our features -</h2>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6 feature-col" >
+      <h2 class="feature-text right">Play quiz and</h2>
+      <h2 class="feature-text right">learn more</h2>
+    </div>
+    <div class="col-6">
+      <img class="feature-img img-responsive" src="images/1st_screenshot.png" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6 ">
+      <img class="feature-img img-responsive" src="images/2nd_screenshot.png" />
+    </div>
+    <div class="col-6 feature-col ">
+      <h2 class="feature-text left">Challenge</h2>
+      <h2 class="feature-text left">your friends</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6 feature-col">
+      <h2 class="feature-text right">measure your</h2>
+      <h2 class="feature-text right">knowledge</h2>
+    </div>
+    <div class="col-6 ">
+      <img class="feature-img img-responsive" src="images/3rd_screenshot.png" />
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <img class="download-button" src="images/download_button.png" data-target="#basicModal" data-toggle="modal" onclick="sendEvent()" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <p class="footer-text">
+        &#169; 2018 Sportsunity Pvt. Ltd. ALl rights reserved.
+      </p>
+    </div>
+  </div>
+</div>
+
+  <div class="modal" id="basicModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <img src="images/ic_close.svg">
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-10 offset-1">
+              <img class="percent_secure" src="images/ic_percent_secure.svg">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 percent_points">
+              <ul>
+                <li>
+                  Your phone will ask you to confirm that you trust Qunami app
+                </li>
+                <!-- <li>
+                  Complete installation to join 3 Lakh+ users already playing on SportsUnity
+                </li> -->
+		<li>As per Google's policies, we are not listed on Play Store since we offer cash contests</li>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+
+            <a type="button" class="btn got_it_button" data-dismiss="modal" onclick="downloadApp()">Got it</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script>
+    function downloadApp() {
+     ga('send', {
+         hitType: 'event',
+         eventCategory: 'download_app',
+         eventAction: 'got_it',
+         eventLabel: 'android_app'
+        });//send google anylytics an event
+
+      window.location = "https://s3.ap-south-1.amazonaws.com/apk.qunami/QunamiV1.apk";
+    }
+    $('#myModal').on('shown.bs.modal', function () {
+      $('#myInput').trigger('focus')
+	
+    })
+function sendEvent(){
+	ga('send', {
+         hitType: 'event',
+         eventCategory: 'download_app',
+         eventAction: 'download_intent',
+         eventLabel: 'android_app'
+        });//send google anylytics an event
+}
+  </script>
+  <!-- <script>EngtChat.init({"bot_key": "604a5f9e2d4447f9", "e":"p", "bot_name":"Ravi","welcome_msg":true, "branding_key":"default" });</script> -->
+  <script>
+  $(document).ready(function(){
+    // Add smooth scrolling to all links
+    $(".scrollit").on('click', function(event) {
+
+      // Make sure this.hash has a value before overriding default behavior
+      if (this.hash !== "") {
+        // Prevent default anchor click behavior
+        event.preventDefault();
+
+        // Store hash
+        var hash = this.hash;
+
+        // Using jQuery's animate() method to add smooth page scroll
+        // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+        $('html, body').animate({
+          scrollTop: $(hash).offset().top
+        }, 800, function(){
+
+          // Add hash (#) to URL when done scrolling (default click behavior)
+          window.location.hash = hash;
+        });
+      } // End if
+    });
+  });
+  </script>
+</body>
+
+</html>
