@@ -2174,6 +2174,17 @@ textarea.w-input, textarea.w-select {
         border-radius: 50%;
         background-color: grey;
     }
+    .profile_pic_in_answer{
+      width: 25px;
+      height: 25px;
+      float: right;
+      margin-left: 12px;
+      position: absolute;
+      left: 35px;
+      border: 1.5px solid #fff;
+      border-radius: 50%;
+      background-color: grey;
+    }
     .player_name{
       color:#fff;
       padding: 0px !important;
@@ -2195,6 +2206,8 @@ textarea.w-input, textarea.w-select {
     }
     #bot{
       background-image: url('images/player-2.png');
+      background-position: center;
+      background-size: cover;
     }
 
     .line_divider {

@@ -9,7 +9,7 @@ $(function () {
             bot_answer: 2
         }, {
             question_text: 'What is the currency of India?',
-            options: ['ethereum', 'rupiah', 'copper', 'rupee'],
+            options: ['ethereum', 'dollar', 'copper', 'rupee'],
             answer: 3,
             bot_answer: 3
         }, {
@@ -27,12 +27,17 @@ $(function () {
     var wrong_ans = new Howl({
      src: ['sounds/Wrong_Answer.aac']
    });
-
+   ga('send', {
+   	 hitType: 'event',
+  	 eventCategory: 'demo',
+  	 eventAction: 'start',
+ 	});
     setQuestion();
     var answer_clicked = false;
 
     function setQuestion() {
         answer_clicked =false;
+        $('.profile_pic_in_answer').remove();
         $('.answer_options').removeClass('correct_ans wrong_ans');
         $('#player').removeClass('profile_green profile_red');
         $('#bot').removeClass('profile_green profile_red');
@@ -50,6 +55,7 @@ $(function () {
         if (!answer_clicked) {
             answer_clicked = true;
             console.log("answer clicked");
+            gaEvents(qCount+1);//send ga events on answer click
             clickResponse(current_question.answer, $(this).attr('data-id'),'player');
             setTimeout(function () {
                 clickResponse(current_question.answer, current_question.bot_answer,'bot');
@@ -62,9 +68,10 @@ $(function () {
                     setQuestion();
                 }
                 else{
-                    window.location = 'download.html';
+                  var loc = window.location.search;
+                    window.location.href = "download.html"+loc; //redirect to facebook campaign
                 }
-            }, 2000);
+            }, 3000);
 
         } else {
             answer_clicked = true;
@@ -72,7 +79,32 @@ $(function () {
 
 
     });
+    function gaEvents(count){
+      if(count == 1){
+        ga('send', {
+        	 hitType: 'event',
+       	 eventCategory: 'demo',
+       	 eventAction: 'demo_q_1_complete',
 
+      	});
+      }
+      else if(count == 2){
+        ga('send', {
+        	 hitType: 'event',
+       	 eventCategory: 'demo',
+       	 eventAction: 'demo_q_2_complete',
+
+      	});
+      }
+      else if (count == 3) {
+        ga('send', {
+        	 hitType: 'event',
+       	 eventCategory: 'demo',
+       	 eventAction: 'completed',
+
+      	});
+      }
+    }
     function clickResponse(answerindex, answerGiven, givenBy) {
       if (answerindex == answerGiven) {
         sclass = 'correct_ans';
@@ -84,6 +116,10 @@ $(function () {
         profileClass = 'profile_red';
         wrong_ans.play();
 
+      }
+      if(givenBy == 'bot'){
+        console.log("adding img of bot ans");
+        $($('.answer_options')[answerGiven]).append("<div class='profile_pic_in_answer' id='bot'></div>");
       }
       $($('.answer_options')[answerGiven]).addClass(sclass);
 
