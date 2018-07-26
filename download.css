@@ -73,6 +73,10 @@ h2.great_going{
 .w-container, .image-4{
   display: none;
 }
+.image-4{
+  z-index:100;
+  display:block;
+}
 .modal_container{
         font-family: 'Roboto', sans-serif;
         font-weight:300;
