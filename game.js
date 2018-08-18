@@ -3,20 +3,20 @@ $(function () {
     var sclass;
     var questions = [
         {
-            question_text: 'Which cricketer started Sehwag International School in Haryana?',
-            options: ['Virender Sehwag', 'Amit Mishra', 'Kapil Dev', 'Shikhar Dhawan'],
-            answer: 0,
-            bot_answer: 2
-        }, {
-            question_text: 'What is the currency of India?',
-            options: ['ethereum', 'dollar', 'copper', 'rupee'],
+            question_text: "Which celestial body was redefined as a 'dwarf planet' in 2006?",
+            options: ['Mercury', 'Venus', 'saturn', 'Pluto'],
             answer: 3,
-            bot_answer: 3
+            bot_answer: 1
         }, {
-            question_text: 'What is another term for "fool"?',
-            options: ['college', 'idiot', 'professional', 'clerk'],
+            question_text: 'What is the capital of Australia?',
+            options: ['Sydney', 'Canberra', 'Melbourne', 'Perth'],
             answer: 1,
-            bot_answer: 0
+            bot_answer: 1
+        }, {
+            question_text: 'Which state in India gained independence from Portugal in 1961?',
+            options: ['Goa', 'Tamil Nadu ', 'Punjab', 'Uttar Pradesh'],
+            answer: 0,
+            bot_answer: 1
         }
     ];
     var qCount = 0;
