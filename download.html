@@ -81,32 +81,17 @@
           </button>
         </div>
         <div class="modal-body">
-
-
           <div class="row">
             <div class="col-10 offset-1">
               <img class="percent_secure" src="images/ic_percent_secure.svg">
             </div>
           </div>
-          <!-- <div class="row">
-            <div class="col-12 percent_points">
-              <ul>
-                <li>
-                  Your phone will ask you to confirm that you trust Qunami app
-                </li>
-                <li>As per Google's policies, we are not allowed to play cash matches on Play Store</li>
-              </ul>
-
-            </div>
-          </div> -->
           <div class="row">
             <p class="paragraph_label"> To play cash matches </p>
             <a type="button" class="btn got_it_button" onclick="downloadApp()" data-dismiss="modal" >Download APK</a>
               <p class="paragraph_label "> For non-cash matches </p>
             <a type="button" class="btn got_it_button got_it_2" onclick="downloadPlay()" data-dismiss="modal"><img class="play_icon" src="images/google_play.svg" alt=""> Google Play</a>
-
           </div>
-
         </div>
       </div>
     </div>
@@ -169,38 +154,6 @@
 </body>
 <script src="download.js"></script>
 <script>
-  // var sendToPlaystore = false
-  // var queryParams = window.location.search
-  // var query = queryParams.split('?referrer=')[1]
-  // var query2 = queryParams.split('?friend_match=')[1]
-  // console.log(query2, typeof query2, "hello")
-  // if (query != undefined) {
-  //   var q = query.split('&')
-  //   var utmObj = {}
-  //   q.forEach(function(a, b) {
-  //     console.log(a, b)
-  //     utmObj[a.split('=')[0]] = a.split('=')[1]
-  //   })
-  //   console.log(queryParams, utmObj)
-  //   if (utmObj.android_app_type == 'Qunami') {
-  //     sendToPlaystore = true;
-  //     $('#apk_download').addClass('hide')
-  //     $('#playstore_download').removeClass('hide')
-  //   }
-  // } else if (query2 != undefined) {
-  //   // for friend match
-  //   var url = decodeURIComponent(query2)
-  //
-  //   var obj = JSON.parse(url.split('?')[1])
-  //   console.log("url is ", obj)
-  //   if (obj.android_app_type == 'Qunami') {
-  //     console.log("playstore button set")
-  //     sendToPlaystore = true;
-  //     $('#apk_download').addClass('hide')
-  //     $('#playstore_download').removeClass('hide')
-  //   }
-  // }
-
 
   window.Clipboard = (function(window, document, navigator) {
     var textArea,
