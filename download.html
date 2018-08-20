@@ -99,7 +99,9 @@
 
   <div class="contheader w-container download_container">
     <img src="https://uploads-ssl.webflow.com/5b28bb33c27e7d7e06dbec4e/5b30e0bf04d4f56ecf2a97bb_ic_qunami_white.svg" width="150" class="image" />
-    <h1 class="heading" style="top:50%;">Get the Full Experience</h1>
+    <h1 class="heading" id="general-heading"    style="top:50%;">Get the Full Experience</h1>
+    <h1 class="heading" id="ghostMatch-heading" style="top:50%;font-size: 6vw;letter-spacing:0.8vw;">Play <span id="ghost-name">Qunami</span>'s quiz challenge</h1>
+    <h1 class="heading" id="ghostMatch-heading-2" style="top:71%;font-size: 6vw;letter-spacing:0.8vw;">By downloading the app now</h1>
   </div>
   <img src="https://uploads-ssl.webflow.com/5b28bb33c27e7d7e06dbec4e/5b313753890b4bc6651abed7_download_button.png" width="229.5" id="apk_download" class="image-4 download_container" onclick="javascript:Clipboard.copy(window.location.href)" data-target="#basicModal"
     data-toggle="modal" />
@@ -223,11 +225,15 @@
           console.log("ty ", element)
           var str = element.split('=')
           utmobj[str[0]] = str[1]
-          if (str[0] == 'friend_match') {
+          if (str[0] == 'friend_match' || str[0] == 'ghost_match') {
             flag = true
             // console.log("clipboard copy done")
             var without_hash = text.split('#')[0]
-            var url = without_hash.split("friend_match=")
+            if(str[0] == 'friend_match')
+              var url = without_hash.split("friend_match=")
+            else
+              var url = without_hash.split("ghost_match=")
+
             // console.log(url)
             createTextArea(url[1]);
             selectText();

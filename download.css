@@ -77,6 +77,12 @@ h2.great_going{
   z-index:100;
   display:block;
 }
+#ghost-name{
+  width:30vw !important;
+  text-overflow: ellipsis !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+}
 .modal_container{
         font-family: 'Roboto', sans-serif;
         font-weight:300;
