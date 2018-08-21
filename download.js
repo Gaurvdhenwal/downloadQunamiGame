@@ -1,7 +1,7 @@
 $(function(){
   var url = decodeURIComponent(window.location.search.substring(1));
-  var ghostMatchLink = getUrlParameter("ghost_match",url);
   var friendMatchLink = getUrlParameter("friend_match",url);
+  var ghostMatchLink = getUrlParameter("ghost_match",url);
   if(ghostMatchLink == undefined && friendMatchLink == undefined){
     //if not a ghost match or a friednmatch link show normal animation
 
@@ -13,12 +13,12 @@ $(function(){
     $('.download_container').css("display",'none');
     $('.great_going').addClass('bounceIn');
     setTimeout(function(){
-      console.log('inside function');
+      // console.log('inside function');
       $('.great-going-cont').fadeOut('fast');
       // $('great_going').addClass('zoomOut');
     },1500);
     setTimeout(function(){
-      console.log('function two');
+      // console.log('function two');
         // $('.download_container').css("display",'block');
       $('.download_container').show('fast');
     },2000);
@@ -27,12 +27,13 @@ $(function(){
     $('.great-going-cont').css('display','none');
     $('.download_container').show('fast');
 
-    console.log("link: "+ghostMatchLink);
+    // console.log("ghostlink: "+ghostMatchLink);
+    // console.log("friendlink: "+friendMatchLink);
     $('#general-heading').css("display","none");
     $('#ghostMatch-heading').css("display","block");
     $('#ghostMatch-heading-2').css("display","block");
 
-    var creator = getLinkValues("g_owner",ghostMatchLink);
+    var creator = getLinkValues("g_owner",ghostMatchLink,friendMatchLink);
     $('#ghost-name').html(creator);
   }
 
@@ -50,11 +51,20 @@ $(function(){
         }
     }
 }
-  function getLinkValues(param,link){
+  function getLinkValues(param,ghostlink,friendlink){
+    var linkObj;
+    var name;
+    if(friendlink !=undefined){
+      // console.log(friendlink);
+      linkObj = JSON.parse(friendlink.split('?')[1]);
+      name = linkObj[param].split('+')[0];
+    }
+    else{
+      linkObj = JSON.parse(ghostlink.split('?')[1]);
+      name = linkObj[param].split('+')[0];
+      // console.log(linkObj[param]);
 
-    var linkObj = JSON.parse(link.split('?')[1]);
-    var name = linkObj[param].split('+')[0];
-    console.log(linkObj[param]);
+    }
 
     return name;
   }
