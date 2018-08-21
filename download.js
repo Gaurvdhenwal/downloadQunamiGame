@@ -1,7 +1,9 @@
 $(function(){
   var url = decodeURIComponent(window.location.search.substring(1));
   var ghostMatchLink = getUrlParameter("ghost_match",url);
-  if(ghostMatchLink == undefined){//if not a ghost match link show normal animation
+  var friendMatchLink = getUrlParameter("friend_match",url);
+  if(ghostMatchLink == undefined && friendMatchLink == undefined){
+    //if not a ghost match or a friednmatch link show normal animation
 
     $('#general-heading').css("display","block");
     $('#ghostMatch-heading').css("display","none");
