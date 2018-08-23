@@ -5,10 +5,10 @@ $(function(){
   if(ghostMatchLink == undefined && friendMatchLink == undefined){
     //if not a ghost match or a friednmatch link show normal animation
 
-    $('#general-heading').css("display","block");
+    $('#general-heading').css({"display":"block","top":'50%'});
     $('#ghostMatch-heading').css("display","none");
     $('#ghostMatch-heading-2').css("display","none");
-
+    $('#playerIcon').css("display",'none');
     //hiding and showing
     $('.download_container').css("display",'none');
     $('.great_going').addClass('bounceIn');
@@ -26,10 +26,12 @@ $(function(){
   else{
     $('.great-going-cont').css('display','none');
     $('.download_container').show('fast');
-
+    $('#featureCont').addClass('featureContDown');
+    $('#apk_download').addClass('downloadbtnUp');
     // console.log("ghostlink: "+ghostMatchLink);
     // console.log("friendlink: "+friendMatchLink);
     $('#general-heading').css("display","none");
+      $('#playerIcon').css("display",'block');
     $('#ghostMatch-heading').css("display","block");
     $('#ghostMatch-heading-2').css("display","block");
 

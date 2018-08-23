@@ -14,9 +14,34 @@ body{
 .container{
   padding:0px !important;
 }
+#playerIcon{
+  position: absolute;
+top: 12vh;
+width: 14vw;
+left: 43vw;
+}
+.downloadbtnUp{
+  top:32vh;
+  left:30vw;
+  width: 40vw;
+}
+.featureContDown{
+  top:15vh;
+}
+.qunamifeature,.qunamifeature_left{
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  text-transform:lowercase !important;
+  text-transform:inherit !important;
+  letter-spacing: 2.5px;
+}
+.heading{
+  font-style: italic;
+}
 .header-subtext{
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 1.2rem;
+
   font-style: italic;
   font-weight: 700;
   color: #fff;
