@@ -1,0 +1,298 @@
+body{
+  /* background:url('images/new/bg.png'), #100226 !important;
+  background-size: cover; */
+  /* background: url('images/new/bg.png')  no-repeat center center fixed, #100226; */
+  background:url('images/bg_icons.svg') no-repeat center center fixed  ,  #100226;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+    height: 100vh;
+    overflow: hidden;
+    line-height: 2.5rem;
+}
+.w-container{
+  opacity: 0;
+  z-index: -1;
+}
+/* #playerIcon{
+  position: absolute;
+top: 12vh;
+width: 14vw;
+left: 43vw;
+} */
+.phone-cont{
+    width: 100vw;
+  height: 55vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.great-going-cont{
+  height:100vh;
+  position: absolute;
+  top:0px;
+  left:0px;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* border:1px solid red; */
+  z-index: 1;
+  /* opacity: 0; */
+}
+h2.great_going{
+  font-family: 'Alberto';
+  font-size:5rem;
+  color:#fff;
+  letter-spacing: 3px;
+  /* opacity: 0; */
+}
+.paytm_logo{
+  width: 80px;
+}
+.slider-txt{
+  color:#fff;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 3vh;
+}
+
+#ghost-name{
+  width:30vw !important;
+  text-overflow: ellipsis !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+}
+.modal_container{
+        font-family: 'Roboto', sans-serif;
+        font-weight:300;
+        position:fixed;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        background-color: rgba(0,0,0,0.8);
+        z-index:999;
+}
+.modal-content{
+        font-family: 'Roboto Condensed', sans-serif;
+        font-weight:100;
+        background-color:#5a0bcf;
+        border:1px solid #5a0bcf;;
+        color:white;
+        width:90%;
+        margin-left:auto;
+        margin-right:auto;
+        border-radius: 13px;
+}
+.percent_secure{
+        width: 110%;
+        margin-left: -5%;
+        margin-right: auto;
+        display: block;
+        margin-top:10px;
+        margin-bottom:10px;
+}
+.percent_points{
+        font-size:21px;
+        margin-top:10px;
+        font-weight:300;
+        margin-bottom: 15px;
+}
+.header-msg{
+  font-family: "Alberto";
+  text-align: center;
+  font-size: 36px;
+  letter-spacing: 2px;
+
+}
+.disclaimer{
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight:100;
+  text-align: center;
+  font-size: 25px;
+  line-height: 28px;
+}
+.modal-footer{
+        border:none;
+}
+.got_it_button{
+        background-color:#38ddbf;
+        width:90%;
+        margin-left:auto;
+        margin-right:auto;
+        border-radius:10px;
+        color:#5a0bcf !important;
+        text-transform: uppercase;
+        -webkit-appearance: initial!important;
+        font-family: 'Roboto Condensed', sans-serif;
+        font-weight:700;
+        margin-top: 7px;
+        margin-bottom: 7px;
+        font-size: 22px;
+        letter-spacing: 1px;
+        position: relative;
+        z-index: 10;
+}
+#download_progress{
+  position: absolute;
+  border-radius:10px;
+  z-index: 9;
+  top:0;
+  left: 0px;
+  height: 100%;
+  width: 0%;
+  background-color:#100226;
+  opacity: 0.2;
+  transition: all 0.5s linear;
+}
+
+.got_it_2{
+  background-color: transparent!important;
+  border:2px solid #38ddbf!important;
+}
+.play_icon{
+  height: 25px;
+  margin-top: -5px;
+}
+.paragraph_label{
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin-left:auto;
+  margin-right:auto;
+  margin-bottom: 0px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 15px;
+}
+
+.modal-header{
+        position: absolute;
+        right: 0;
+        border: none;
+}
+.modal-header button{
+
+        z-index:999;
+        /* color: white; */
+        /* border: 2px solid white; */
+        width: 20px;
+        height: 20px;
+        padding: 0!important;
+        margin: -10px -4px!important;
+        /* border-radius: 100%; */
+        opacity: 1;
+        /* font-size: 12px!important; */
+
+}
+.contheader{
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  flex-direction: column;
+  height:15vh;
+  padding-top: 5vh;
+  /* border:1px solid red; */
+ 
+}
+.image{
+  width: 27vw;
+  margin-bottom: 8px;
+}
+.heading{
+  font-family: 'Roboto Condensed', sans-serif;
+  /* font-family: Alberto, 'Trebuchet MS', sans-serif; */
+  font-weight: 700;
+    color: #fff;
+    font-size: 0.9rem;
+    letter-spacing: 4px;
+    margin:0px;
+    text-transform: uppercase;
+    font-style: italic;
+}
+.cont_carousal_one{
+  /* border:1px solid green; */
+  height: 15vh;
+}
+.download-cont{
+  /* border:1px solid blue; */
+  height: 15vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.download_button{
+  width: 50vw;
+  
+}
+.cont_carousal_two{
+  /* border:1px solid red; */
+  height: 55vh;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+.phone-img{
+  height: 55vh;
+ /* margin-left: 13vw;*/
+}
+@media(min-width:410px) and (min-height:800px){
+
+}
+
+@media (max-width:375px){
+       
+        .percent_points{
+                font-size:18px;
+        }
+        body{
+          line-height: 2rem;
+        }
+    
+        .slider-txt{
+          font-size: 1.8rem;
+        }
+        .heading{
+          font-size: 0.75rem;
+        }
+        .header-msg{
+          font-size: 32px;
+        }
+        .disclaimer{
+          font-size: 19px;
+          line-height: 21px;
+        }
+}
+@media (max-width:330px){
+        
+        .percent_points{
+                font-size:15px;
+        }
+        .heading{
+          font-size: 0.7rem;
+        }
+        .slider-txt{
+          font-size: 1.8rem;
+        }
+	.download_button{
+width:38vw;
+}
+@media(min-width: 768px){
+  body{
+    line-height: 4rem;
+  }
+  .download_button{
+    width: 24vh;
+  }   
+
+  .slider-txt{
+    font-size: 3.2rem;
+  }
+}

@@ -3,23 +3,32 @@
 <!-- Last Published: Mon Jul 02 2018 13:19:37 GMT+0000 (UTC) -->
 
 <!--  Striker Shubham Commit-->
-<html data-wf-page="5b34d26272f04cccf6bcb180" data-wf-site="5b28bb33c27e7d7e06dbec4e" data-wf-status="1">
+<html>
 
 <head>
   <meta charset="utf-8" />
   <title>Download Qunami</title>
   <meta content="DownloadPage" property="og:title" />
   <meta content="width=device-width, initial-scale=1" name="viewport" />
-  <link href="https://uploads-ssl.webflow.com/5b28bb33c27e7d7e06dbec4e/css/qunami-question-mockup.webflow.cfe4ef00a.css" rel="stylesheet" type="text/css" />
   <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700" rel="stylesheet">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="download.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="download_v2.css" />
   <link rel="stylesheet" href="animate.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <script src="download_file.js"></script>
+  <style>
+    @font-face {
+      font-family: Alberto;
+      font-style: normal;
+      src: url(font/Alberto-Regular.ttf);
+    }
+  </style>
 
   <script>
-    ! function(f, b, e, v, n, t, s) {
+    ! function (f, b, e, v, n, t, s) {
       if (f.fbq) return;
-      n = f.fbq = function() {
+      n = f.fbq = function () {
         n.callMethod ?
           n.callMethod.apply(n, arguments) : n.queue.push(arguments)
       };
@@ -46,16 +55,17 @@
   <!-- End Facebook Pixel Code -->
   <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script><![endif]-->
   <script type="text/javascript">
-    ! function(o, c) {
+    ! function (o, c) {
       var n = c.documentElement,
         t = " w-mod-";
-      n.className += t + "js", ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch")
+      n.className += t + "js", ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className +=
+        t + "touch")
     }(window, document);
   </script>
   <script>
-    (function(i, s, o, g, r, a, m) {
+    (function (i, s, o, g, r, a, m) {
       i['GoogleAnalyticsObject'] = r;
-      i[r] = i[r] || function() {
+      i[r] = i[r] || function () {
         (i[r].q = i[r].q || []).push(arguments)
       }, i[r].l = 1 * new Date();
       a = s.createElement(o),
@@ -83,21 +93,23 @@
         <div class="modal-body">
           <div class="row">
             <div class="col-10 offset-1">
-              <img class="percent_secure" src="images/ic_percent_secure.svg">
+              <img class="percent_secure" src="images/won.png">
             </div>
           </div>
           <div class="row">
             <div class="col-12 percent_points">
-              <ul>
-                <li>
-                  Your phone will ask you to confirm that you trust Qunami app
-                </li>
-                <li>As per Google's policies, we are not listed on Play Store since we offer cash contests</li>
-              </ul>
+              <h2 class="header-msg">
+                Your turn to win cash!
+              </h2>
+              <p class="disclaimer">Please confirm on your phone that you trust Qunami App</p>
             </div>
           </div>
           <div class="row">
-            <a type="button" class="btn got_it_button"  onclick="downloadApp()">Got it</a>
+            <a type="button" class="btn got_it_button" onclick="downloading?true:downloadApp()">
+              <span id="download_txt"> Download now</span>
+              <div id="download_progress"></div>
+            </a>
+            <div class="logs"></div>
           </div>
 
         </div>
@@ -105,39 +117,45 @@
     </div>
   </div>
 
-  <div class="contheader w-container download_container">
-    <img src="https://uploads-ssl.webflow.com/5b28bb33c27e7d7e06dbec4e/5b30e0bf04d4f56ecf2a97bb_ic_qunami_white.svg" width="150" class="image" />
-    <img src="images/icon.png" id="playerIcon" />
-    <h1 class="heading" id="general-heading"    style="top:50%;">Get the Full Experience</h1>
-    <h1 class="heading" id="ghostMatch-heading" style="top:108%;font-size: 6vw;letter-spacing:0.8vw;">Play <span id="ghost-name">Qunami</span>'s quiz challenge</h1>
-    <h1 class="heading" id="ghostMatch-heading-2" style="top:129%;font-size: 6vw;letter-spacing:0.8vw;">By downloading the app now</h1>
+  <div class="contheader w-container">
+    <img src="https://uploads-ssl.webflow.com/5b28bb33c27e7d7e06dbec4e/5b30e0bf04d4f56ecf2a97bb_ic_qunami_white.svg"
+      width="150" class="image" />
+    <!-- <img src="images/icon.png" id="playerIcon" /> -->
+    <h1 class="heading" id="general-heading">Get the Full Experience</h1>
+    <h1 class="heading" id="ghostMatch-heading">Play <span id="ghost-name">Qunami</span>'s quiz challenge</h1>
+    <h1 class="heading" id="ghostMatch-heading-2">By downloading the app now</h1>
   </div>
-  <img src="https://uploads-ssl.webflow.com/5b28bb33c27e7d7e06dbec4e/5b313753890b4bc6651abed7_download_button.png" width="229.5" id="apk_download" class="image-4 download_container" onclick="javascript:Clipboard.copy(window.location.href)" data-target="#basicModal"
-    data-toggle="modal" />
-  <!-- <img src="https://uploads-ssl.webflow.com/5b28bb33c27e7d7e06dbec4e/5b313753890b4bc6651abed7_download_button.png" width="229.5" id="playstore_download" class=" hide image-4 download_container" onclick="javascript:Clipboard.copy(window.location.href)" /> -->
-  <div class="container w-container download_container" id="featureCont">
-    <div class="div-block">
-      <img src="https://uploads-ssl.webflow.com/5b28bb33c27e7d7e06dbec4e/5b31096c1cec371ea2c055d5_1st_screenshot.png" width="411" srcset="https://uploads-ssl.webflow.com/5b28bb33c27e7d7e06dbec4e/5b31096c1cec371ea2c055d5_1st_screenshot-p-500.png 500w, https://uploads-ssl.webflow.com/5b28bb33c27e7d7e06dbec4e/5b31096c1cec371ea2c055d5_1st_screenshot-p-800.png 800w, https://uploads-ssl.webflow.com/5b28bb33c27e7d7e06dbec4e/5b31096c1cec371ea2c055d5_1st_screenshot.png 878w"
-        sizes="(max-width: 479px) 73vw, 411px" data-w-id="a9616e05-baa7-2800-548d-ab6529d77a4c" style="-webkit-transform:translateX(20VW) translateY(-20VW) translateZ(0) scaleX(1) scaleY(1) scaleZ(1) rotateX(0) rotateY(0) rotateZ(0) skewX(0) skewY(0);-moz-transform:translateX(20VW) translateY(-20VW) translateZ(0) scaleX(1) scaleY(1) scaleZ(1) rotateX(0) rotateY(0) rotateZ(0) skewX(0) skewY(0);-ms-transform:translateX(20VW) translateY(-20VW) translateZ(0) scaleX(1) scaleY(1) scaleZ(1) rotateX(0) rotateY(0) rotateZ(0) skewX(0) skewY(0);transform:translateX(20VW) translateY(-20VW) translateZ(0) scaleX(1) scaleY(1) scaleZ(1) rotateX(0) rotateY(0) rotateZ(0) skewX(0) skewY(0);opacity:0"
-        class="featuremockup" />
-      <h1 data-w-id="2a46d304-d76b-b362-d4d8-0f658a107344" style="-webkit-transform:translateX(-9VW) translateY(0) translateZ(0) scaleX(1) scaleY(1) scaleZ(1) rotateX(0) rotateY(0) rotateZ(0) skewX(0) skewY(0);-moz-transform:translateX(-9VW) translateY(0) translateZ(0) scaleX(1) scaleY(1) scaleZ(1) rotateX(0) rotateY(0) rotateZ(0) skewX(0) skewY(0);-ms-transform:translateX(-9VW) translateY(0) translateZ(0) scaleX(1) scaleY(1) scaleZ(1) rotateX(0) rotateY(0) rotateZ(0) skewX(0) skewY(0);transform:translateX(-9VW) translateY(0) translateZ(0) scaleX(1) scaleY(1) scaleZ(1) rotateX(0) rotateY(0) rotateZ(0) skewX(0) skewY(0);opacity:0"
-        class="qunamifeature">Play with
-        <br/>10,000+
-        <br/>users</h1>
-      <img src="https://uploads-ssl.webflow.com/5b28bb33c27e7d7e06dbec4e/5b31096cf7f0bdddf305fb26_2nd_screenshot.png" width="411" srcset="https://uploads-ssl.webflow.com/5b28bb33c27e7d7e06dbec4e/5b31096cf7f0bdddf305fb26_2nd_screenshot-p-500.png 500w, https://uploads-ssl.webflow.com/5b28bb33c27e7d7e06dbec4e/5b31096cf7f0bdddf305fb26_2nd_screenshot.png 822w"
-        sizes="(max-width: 479px) 66vw, 411px" data-w-id="a2efd664-729c-23fc-a0bc-45456b2889d5" style="-webkit-transform:translateX(-20VW) translateY(-20VW) translateZ(0) scaleX(1) scaleY(1) scaleZ(1) rotateX(0) rotateY(0) rotateZ(0) skewX(0) skewY(0);-moz-transform:translateX(-20VW) translateY(-20VW) translateZ(0) scaleX(1) scaleY(1) scaleZ(1) rotateX(0) rotateY(0) rotateZ(0) skewX(0) skewY(0);-ms-transform:translateX(-20VW) translateY(-20VW) translateZ(0) scaleX(1) scaleY(1) scaleZ(1) rotateX(0) rotateY(0) rotateZ(0) skewX(0) skewY(0);transform:translateX(-20VW) translateY(-20VW) translateZ(0) scaleX(1) scaleY(1) scaleZ(1) rotateX(0) rotateY(0) rotateZ(0) skewX(0) skewY(0);opacity:0"
-        class="featuremockup_left" />
-      <h1 data-w-id="319f2bd3-d34a-166c-6634-a048e807d0c7" style="-webkit-transform:translateX(10VW) translateY(0) translateZ(0) scaleX(1) scaleY(1) scaleZ(1) rotateX(0) rotateY(0) rotateZ(0) skewX(0) skewY(0);-moz-transform:translateX(10VW) translateY(0) translateZ(0) scaleX(1) scaleY(1) scaleZ(1) rotateX(0) rotateY(0) rotateZ(0) skewX(0) skewY(0);-ms-transform:translateX(10VW) translateY(0) translateZ(0) scaleX(1) scaleY(1) scaleZ(1) rotateX(0) rotateY(0) rotateZ(0) skewX(0) skewY(0);transform:translateX(10VW) translateY(0) translateZ(0) scaleX(1) scaleY(1) scaleZ(1) rotateX(0) rotateY(0) rotateZ(0) skewX(0) skewY(0);opacity:0"
-        class="qunamifeature_left">Challenge
-        <br/>your
-        <br/>friends</h1>
-      <img src="https://uploads-ssl.webflow.com/5b28bb33c27e7d7e06dbec4e/5b31096c1d02ec9a064e5aae_3rd_screenshot.png" srcset="https://uploads-ssl.webflow.com/5b28bb33c27e7d7e06dbec4e/5b31096c1d02ec9a064e5aae_3rd_screenshot-p-500.png 500w, https://uploads-ssl.webflow.com/5b28bb33c27e7d7e06dbec4e/5b31096c1d02ec9a064e5aae_3rd_screenshot.png 878w"
-        sizes="(max-width: 479px) 73vw, (max-width: 767px) 100vw, (max-width: 991px) 728px, 878px" data-w-id="864e6835-216a-6c2a-d2fa-e7ee3ac8d8f3" style="-webkit-transform:translateX(20VW) translateY(-20VW) translateZ(0) scaleX(1) scaleY(1) scaleZ(1) rotateX(0) rotateY(0) rotateZ(0) skewX(0) skewY(0);-moz-transform:translateX(20VW) translateY(-20VW) translateZ(0) scaleX(1) scaleY(1) scaleZ(1) rotateX(0) rotateY(0) rotateZ(0) skewX(0) skewY(0);-ms-transform:translateX(20VW) translateY(-20VW) translateZ(0) scaleX(1) scaleY(1) scaleZ(1) rotateX(0) rotateY(0) rotateZ(0) skewX(0) skewY(0);transform:translateX(20VW) translateY(-20VW) translateZ(0) scaleX(1) scaleY(1) scaleZ(1) rotateX(0) rotateY(0) rotateZ(0) skewX(0) skewY(0);opacity:0"
-        class="featuremockup second" />
-      <h1 data-w-id="cf6b13ab-06f6-24b4-4b7a-1836761bcf9a" style="-webkit-transform:translateX(-9VW) translateY(0) translateZ(0) scaleX(1) scaleY(1) scaleZ(1) rotateX(0) rotateY(0) rotateZ(0) skewX(0) skewY(0);-moz-transform:translateX(-9VW) translateY(0) translateZ(0) scaleX(1) scaleY(1) scaleZ(1) rotateX(0) rotateY(0) rotateZ(0) skewX(0) skewY(0);-ms-transform:translateX(-9VW) translateY(0) translateZ(0) scaleX(1) scaleY(1) scaleZ(1) rotateX(0) rotateY(0) rotateZ(0) skewX(0) skewY(0);transform:translateX(-9VW) translateY(0) translateZ(0) scaleX(1) scaleY(1) scaleZ(1) rotateX(0) rotateY(0) rotateZ(0) skewX(0) skewY(0);opacity:0"
-        class="qunamifeature">Make your
-        <br/>mark in the
-        <br/>world</h1>
+  <div class="cont_carousal_one w-container">
+    <div>
+      <p class="slider-txt">Best multiplayer<br /> quiz game</p>
+    </div>
+    <div>
+      <p class="slider-txt">Play with<br /> 1 lakh+ users</p>
+    </div>
+    <div>
+      <p class="slider-txt">Win paytm<br /> Cash prizes</p>
+      <!-- <img class="paytm_logo" src="images/new/paytm_logo.png"/> -->
+    </div>
+  </div>
+  <div class="download-cont w-container">
+    <img src="images/new/button.png" class="download_button" id="apk_download"
+      onclick="javascript:Clipboard.copy(window.location.href)" data-target="#basicModal" data-toggle="modal" />
+  </div>
+  <div class="cont_carousal_two w-container">
+    <div>
+      <div class="phone-cont">
+        <img class="phone-img" src="images/new/screnshot_1.png">
+      </div>
+    </div>
+    <div>
+      <div class="phone-cont">
+        <img class="phone-img" src="images/new/screnshot_2.png">
+      </div>
+    </div>
+    <div>
+      <div class="phone-cont">
+        <img class="phone-img" src="images/new/screnshot_3.png">
+      </div>
     </div>
   </div>
   <div class="container great-going-cont">
@@ -146,13 +164,30 @@
     </h2>
     <h2 class="great_going animated">going</h2>
   </div>
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" type="text/javascript" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <script src="wf2.js" type="text/javascript"></script>
-  <!--[if lte IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('.cont_carousal_one, .cont_carousal_two').slick({
+        autoplay: true,
+        arrows: false,
+        // centerMode:false,
+        draggable: false,
+        mobileFirst: true,
 
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+      });
+    });
+  </script>
+  <script src="download_v2.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+  <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+  </script>
   <style>
     .hide {
       display: none !important;
@@ -163,10 +198,8 @@
     }
   </style>
 </body>
-<script src="download.js"></script>
 <script>
-
-  window.Clipboard = (function(window, document, navigator) {
+  window.Clipboard = (function (window, document, navigator) {
     var textArea,
       copy;
 
@@ -202,7 +235,7 @@
           data: url,
           para: clip
         },
-        function(data, success) {
+        function (data, success) {
 
         }
       )
@@ -213,7 +246,7 @@
       document.body.removeChild(textArea);
     }
 
-    copy = function(text) {
+    copy = function (text) {
 
       console.log("event ", text)
       ga('send', {
@@ -238,7 +271,7 @@
             flag = true
             // console.log("clipboard copy done")
             var without_hash = text.split('#')[0]
-            if(str[0] == 'friend_match')
+            if (str[0] == 'friend_match')
               var url = without_hash.split("friend_match=")
             else
               var url = without_hash.split("ghost_match=")
@@ -295,25 +328,26 @@
   })(window, document, navigator);
 </script>
 <script>
-function downloadPlay(){
-  var trackobj = {}
-  var location = window.location.search;
-  console.log(location)
-  var locationPara = location.substring(1, location.length);
-  console.log(locationPara)
- locationPara = locationPara == undefined ? '' : locationPara;
- console.log(locationPara)
-  trackobj['url_params'] = locationPara
-  fbq('trackCustom', 'download_qunami_app_plays', trackobj);
-  ga('send', {
-    hitType: 'event',
-    eventCategory: 'download_app',
-    eventAction: "playstore",
-    eventLabel: 'android_app'
-  }); //send google anylytics an event
+  function downloadPlay() {
+    var trackobj = {}
+    var location = window.location.search;
+    console.log(location)
+    var locationPara = location.substring(1, location.length);
+    console.log(locationPara)
+    locationPara = locationPara == undefined ? '' : locationPara;
+    console.log(locationPara)
+    trackobj['url_params'] = locationPara
+    fbq('trackCustom', 'download_qunami_app_plays', trackobj);
+    ga('send', {
+      hitType: 'event',
+      eventCategory: 'download_app',
+      eventAction: "playstore",
+      eventLabel: 'android_app'
+    }); //send google anylytics an event
     var href = 'https://play.google.com/store/apps/details?id=co.qunami&' + locationPara;
-    window.location.href=href;
-}
+    window.location.href = href;
+  }
+
   function downloadApp() {
 
     ga('send', {
@@ -343,13 +377,15 @@ function downloadPlay(){
       //   var href = 'https://play.google.com/store/apps/details?id=co.qunami&' + window.location.search.split('?referrer=')[1];
       //   window.location.href = href;
       // } else
-      if (utmobj['utm_source'] == 'facebook' && utmobj['utm_medium'] == 'cpc' && utmobj['utm_campaign'] == 'Qunami-Quiz') {
+      if (utmobj['utm_source'] == 'facebook' && utmobj['utm_medium'] == 'cpc' && utmobj['utm_campaign'] ==
+        'Qunami-Quiz') {
         var trackobj = {}
         locationPara = locationPara == undefined ? '' : locationPara;
         trackobj['url_params'] = locationPara
         fbq('trackCustom', 'download_qunami_app_button_click', trackobj);
         window.location = "https://s3.ap-south-1.amazonaws.com/apk.qunami/QunamiV2.apk";
-      } else if (utmobj['utm_source'] == 'facebook' && utmobj['utm_medium'] == 'cpc' && utmobj['utm_campaign'] == 'Matches-Qunami-Quiz') {
+      } else if (utmobj['utm_source'] == 'facebook' && utmobj['utm_medium'] == 'cpc' && utmobj['utm_campaign'] ==
+        'Matches-Qunami-Quiz') {
         var trackobj = {}
         locationPara = locationPara == undefined ? '' : locationPara;
         trackobj['url_params'] = locationPara
@@ -363,12 +399,79 @@ function downloadPlay(){
         window.location = "https://s3.ap-south-1.amazonaws.com/apk.qunami/QunamiV1.apk";
       }
     } else {
-      window.location = "https://s3.ap-south-1.amazonaws.com/apk.qunami/QunamiV1.apk";
+      // console.log("else called");
+      // alert("else called");
+      ajaxDownload();
+      // window.location = "https://s3.ap-south-1.amazonaws.com/apk.qunami/QunamiV1.apk";
+
     }
   }
-  $('#myModal').on('shown.bs.modal', function() {
+  $('#myModal').on('shown.bs.modal', function () {
     $('#myInput').trigger('focus')
   })
+  var downloading = false;
+  function ajaxDownload() {
+    var request = new XMLHttpRequest(),
+        gotFiftyPercent = false;
+    request.addEventListener('readystatechange', function (e) {
+      // alert(JSON.stringify(e));
+      if (request.readyState == 2 && request.status == 200) {
+        // Download is being started
+        ga('send', {
+          hitType: 'event',
+          eventCategory: 'download_app',
+          eventAction: 'download_started',
+          eventLabel: 'android_app'
+        });
+        console.log("download_started")
+        // alert("down started");
+        downloading = true;
+
+      } else if (request.readyState == 3) {
+        // Download is under progress
+        console.log("under progress");
+        // alert("under progress");
+
+      } else if (request.readyState == 4) {
+        ga('send', {
+          hitType: 'event',
+          eventCategory: 'download_app',
+          eventAction: 'download_complete',
+          eventLabel: 'android_app'
+        });
+        download(request.response, 'qunami.apk', 'application/vnd.android.package-archive');
+        downloading = false;
+      }
+    });
+    request.addEventListener('progress', function (e) {
+      var percent_complete = (e.loaded / e.total) * 100;
+      var button = document.getElementById('download_progress');
+      var txt = document.getElementById('download_txt');
+      button.style.width = percent_complete + '%';
+      if (percent_complete != 100)
+        txt.innerHTML = "Downloading... " + Math.round(percent_complete) + '% ';
+      else {
+        txt.innerHTML = "Downloaded " + percent_complete + '%';
+        button.style.width = '0%';
+      }
+      if (Math.round(percent_complete) == 50 && !gotFiftyPercent) {
+        gotFiftyPercent = true;
+        ga('send', {
+          hitType: 'event',
+          eventCategory: 'download_app',
+          eventAction: 'download_50',
+          eventLabel: 'android_app'
+        });
+      }
+      // console.log("percent_complete ",percent_complete);
+    });
+    request.responseType = 'blob';
+    // request.open('get', 'QunamiV1.apk');
+    request.open('get', 'https://s3.ap-south-1.amazonaws.com/apk.qunami/QunamiV1.apk');
+    // request.setRequestHeader('Access-Control-Allow-Origin','http://192.168.0.54:8000');
+
+    request.send();
+  }
 </script>
 
 </html>
