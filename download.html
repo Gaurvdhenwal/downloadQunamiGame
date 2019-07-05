@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="animate.css" />
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
   <script src="download_file.js"></script>
+  <script src="mobile-detect.min.js"></script>
   <style>
     @font-face {
       font-family: Alberto;
@@ -371,34 +372,43 @@
         var str = element.split('=')
         utmobj[str[0]] = str[1]
       });
-
+      var trackobj = {}
+        locationPara = locationPara == undefined ? '' : locationPara;
+        trackobj['url_params'] = locationPara
+        fbq('trackCustom', 'download_qunami_app_button_click', trackobj);
+        if(utmobj['utm_source'] == 'facebook' && utmobj['utm_medium'] == 'cpc' && utmobj['utm_campaign'] ==
+        'QunamiBrowserOld' ){
+          window.location = "https://s3.ap-south-1.amazonaws.com/apk.qunami/QunamiV1.apk";
+        }
+        else if(utmobj['utm_source'] == 'facebook' && utmobj['utm_medium'] == 'cpc' && utmobj['utm_campaign'] ==
+        'QunamiBrowserNew'){
+          ajaxDownload(); 
+        }
+      
+      }
       // console.log(utmobj)
       // if (utmobj['android_app_type'] == 'Qunami') {
       //   var href = 'https://play.google.com/store/apps/details?id=co.qunami&' + window.location.search.split('?referrer=')[1];
       //   window.location.href = href;
       // } else
-      if (utmobj['utm_source'] == 'facebook' && utmobj['utm_medium'] == 'cpc' && utmobj['utm_campaign'] ==
-        'Qunami-Quiz') {
-        var trackobj = {}
-        locationPara = locationPara == undefined ? '' : locationPara;
-        trackobj['url_params'] = locationPara
-        fbq('trackCustom', 'download_qunami_app_button_click', trackobj);
-        window.location = "https://s3.ap-south-1.amazonaws.com/apk.qunami/QunamiV2.apk";
-      } else if (utmobj['utm_source'] == 'facebook' && utmobj['utm_medium'] == 'cpc' && utmobj['utm_campaign'] ==
-        'Matches-Qunami-Quiz') {
-        var trackobj = {}
-        locationPara = locationPara == undefined ? '' : locationPara;
-        trackobj['url_params'] = locationPara
-        fbq('trackCustom', 'download_qunami_app_button_click', trackobj);
-        window.location = "https://s3.ap-south-1.amazonaws.com/apk.qunami/QunamiV3.apk";
-      } else {
-        var trackobj = {}
-        locationPara = locationPara == undefined ? '' : locationPara;
-        trackobj['url_params'] = locationPara
-        fbq('trackCustom', 'download_qunami_app_button_click', trackobj);
-        window.location = "https://s3.ap-south-1.amazonaws.com/apk.qunami/QunamiV1.apk";
-      }
-    } else {
+      // if (utmobj['utm_source'] == 'facebook' && utmobj['utm_medium'] == 'cpc' && utmobj['utm_campaign'] ==
+      //   'Qunami-Quiz') {
+      //   var trackobj = {}
+      //   locationPara = locationPara == undefined ? '' : locationPara;
+      //   trackobj['url_params'] = locationPara
+      //   fbq('trackCustom', 'download_qunami_app_button_click', trackobj);
+      //   window.location = "https://s3.ap-south-1.amazonaws.com/apk.qunami/QunamiV2.apk";
+      // } else if (utmobj['utm_source'] == 'facebook' && utmobj['utm_medium'] == 'cpc' && utmobj['utm_campaign'] ==
+      //   'Matches-Qunami-Quiz') {
+      //   var trackobj = {}
+      //   locationPara = locationPara == undefined ? '' : locationPara;
+      //   trackobj['url_params'] = locationPara
+      //   fbq('trackCustom', 'download_qunami_app_button_click', trackobj);
+      //   window.location = "https://s3.ap-south-1.amazonaws.com/apk.qunami/QunamiV3.apk";
+      // } else {
+             
+      
+     else {
       // console.log("else called");
       // alert("else called");
       ajaxDownload();
