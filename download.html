@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <!-- This site was created in Webflow. http://www.webflow.com -->
 <!-- Last Published: Mon Jul 02 2018 13:19:37 GMT+0000 (UTC) -->
-
-<!--  Striker Shubham Commit-->
 <html>
 
 <head>
@@ -46,11 +44,17 @@
     }(window, document, 'script',
       'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '919414801497495');
+    fbq('init', '2388545861389490');
+
     fbq('track', 'PageView');
     fbq('trackCustom', 'download_app_page_load');
   </script>
   <noscript>
     <img height="1" width="1" src="https://www.facebook.com/tr?id=919414801497495&ev=PageView
+        &noscript=1" />
+  </noscript>
+  <noscript>
+    <img height="1" width="1" src="https://www.facebook.com/tr?id=2388545861389490&ev=PageView
         &noscript=1" />
   </noscript>
   <!-- End Facebook Pixel Code -->
@@ -82,7 +86,7 @@
   <!-- End Google Analytics -->
 </head>
 
-<body class="body">
+<body class="body" onload="downloadInitalHandle()">
   <div class="modal" id="basicModal" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
@@ -106,7 +110,7 @@
             </div>
           </div>
           <div class="row">
-            <a type="button" class="btn got_it_button" onclick="downloading?true:downloadApp()">
+            <a type="button" class="btn got_it_button" onclick="downloadApp();">
               <span id="download_txt"> Download now</span>
               <div id="download_progress"></div>
             </a>
@@ -139,8 +143,16 @@
     </div>
   </div>
   <div class="download-cont w-container">
-    <img src="images/new/button.png" class="download_button" id="apk_download"
-      onclick="javascript:Clipboard.copy(window.location.href)" data-target="#basicModal" data-toggle="modal" />
+    <!-- <a href="http://192.168.0.54:8000/download.html?start_download=true" class="download_button"
+      target="_new">Download</a> -->
+    <!-- intent://192.168.0.54:8000/download.html?start_download=true#Intent;scheme=http;package=com.android.chrome;S.browser_fallback_url=https://qunami.co;end -->
+    <button onclick="javascript:Clipboard.copy(window.location.href);openModal();" class="download_button"
+      id="download_button" target="_new"><img src="images/chrome_browser.svg" data-target="#basicModal"
+        data-toggle="modal"> Download app</button>
+    <!-- <img src="images/new/button.png" class="download_button" id="apk_download"
+      onclick="redirectTest()" data-target="#basicModal" data-toggle="modal" /> -->
+    <!-- <img src="images/new/button.png" class="download_button" id="apk_download"
+      onclick="javascript:Clipboard.copy(window.location.href)" data-target="#basicModal" data-toggle="modal" /> -->
   </div>
   <div class="cont_carousal_two w-container">
     <div>
@@ -200,6 +212,39 @@
   </style>
 </body>
 <script>
+  var md = new MobileDetect(window.navigator.userAgent);
+  var uAgent = md.ua;
+  console.log(uAgent);
+  // document.getElementById('download_button').innerHTML = uAgent;
+  // console.log(md.version('Webkit'),md);
+  var str = /wv/; // to search for webview string in useragent
+  // const redmiPhonesStr = /Redmi/
+  // const miPhoneStr = /Mi/
+  // const samsPhoneStr
+  let browserName;
+  let browserVer;
+  if (uAgent.search(/Redmi/) != -1) {
+    console.log("caught Redmi", uAgent.search(/Redmi/));
+    // document.getElementById('download_button').innerHTML = 'Redmi';
+  } else if (uAgent.search(/Mi/) != -1) {
+    console.log("caught Mi");
+    // document.getElementById('download_button').innerHTML = 'Mi';
+  }
+  if (md.is('UCBrowser')) {
+    browserName = 'UCBrowser'
+    browserVer = md.version('UCBrowser');
+  } else if (md.is('SamsungBrowser')) {
+    browserName = 'SamsungBroswer'
+    browserVer = md.version('SamsungBrowser');
+  } else if (md.is('Chrome')) {
+    browserName = 'Chrome';
+    browserVer = md.version('Chrome');
+  }
+  var uBrowser = browserName + "_" + browserVer;
+  var isWebView = uAgent.search(str) != -1 ? 'Webview' : uBrowser;
+  // document.getElementById('ua').innerHTML = isWebView;
+
+
   window.Clipboard = (function (window, document, navigator) {
     var textArea,
       copy;
@@ -231,7 +276,7 @@
     }
 
     function verifyValue(url, clip) {
-      console.log(url, clip)
+      // console.log(url, clip)
       $.post(`https://script.google.com/macros/s/AKfycbzNmNivQ9tk2LQU3BuDb2DzTV0gvLOkBnmN4q5kiSJYB_-nIo_6/exec`, {
           data: url,
           para: clip
@@ -247,14 +292,13 @@
       document.body.removeChild(textArea);
     }
 
-    copy = function (text) {
-
+    copy = function (text) { //copy current url for app to read and send to backend;
       console.log("event ", text)
       ga('send', {
         hitType: 'event',
         eventCategory: 'download_app',
         eventAction: 'download_intent',
-        eventLabel: 'android_app'
+        eventLabel: isWebView
       });
       var loc = window.location.search;
       console.log(loc)
@@ -265,7 +309,7 @@
         var flag = false;
         var utmobj = {}
         utms.forEach(element => {
-          console.log("ty ", element)
+          // console.log("ty ", element)
           var str = element.split('=')
           utmobj[str[0]] = str[1]
           if (str[0] == 'friend_match' || str[0] == 'ghost_match') {
@@ -276,8 +320,8 @@
               var url = without_hash.split("friend_match=")
             else
               var url = without_hash.split("ghost_match=")
-
-            // console.log(url)
+            url[1]['src_browser'] = isWebView;
+            // console.log("fm****"+url)
             createTextArea(url[1]);
             selectText();
             verifyValue(text, url[1]);
@@ -286,23 +330,25 @@
             flag = true
             var without_hash = newtext.split('#')[0]
             var url = without_hash.split("referrer=")
-            console.log("wo hash", url, typeof url)
+            // console.log("wo hash", url, typeof url)
             var newref = url[1].split('&')
             var refobj = {}
             newref.forEach(element => {
-              console.log(element)
+              // console.log(element)
               var key = element.split('=')[0]
               var value = element.split('=')[1]
               refobj[key] = value
             })
-
-            console.log(refobj)
+            refobj['src_browser'] = isWebView;
+            // console.log("refobj",refobj)
             createTextArea(text.split('?')[0] + '?' + JSON.stringify(refobj));
             selectText();
             copyToClipboard();
           }
         });
         if (!flag) {
+          utmobj['src_browser'] = isWebView; //to send source_browser => app;
+          // console.log("url obj"+ text.split('?')[0] + '?' + JSON.stringify(utmobj));
           createTextArea(text.split('?')[0] + '?' + JSON.stringify(utmobj));
           selectText();
           copyToClipboard();
@@ -329,39 +375,91 @@
   })(window, document, navigator);
 </script>
 <script>
-  function downloadPlay() {
-    var trackobj = {}
+  function downloadInitalHandle() {
+    document.getElementById('download_button').style.display = 'none';
+
     var location = window.location.search;
-    console.log(location)
-    var locationPara = location.substring(1, location.length);
-    console.log(locationPara)
-    locationPara = locationPara == undefined ? '' : locationPara;
-    console.log(locationPara)
-    trackobj['url_params'] = locationPara
-    fbq('trackCustom', 'download_qunami_app_plays', trackobj);
-    ga('send', {
-      hitType: 'event',
-      eventCategory: 'download_app',
-      eventAction: "playstore",
-      eventLabel: 'android_app'
-    }); //send google anylytics an event
-    var href = 'https://play.google.com/store/apps/details?id=co.qunami&' + locationPara;
-    window.location.href = href;
+    if (location != '') {
+      // console.log(location)
+      var locationPara = location.split('?')[1];
+      var utms = locationPara.split('&');
+      var utmobj = {}
+      // console.log(location + '&start_download=true');
+      utms.forEach(element => {
+        var str = element.split('=')
+        utmobj[str[0]] = str[1];
+
+      });
+
+      if (utmobj['utm_source'] == 'facebook' && utmobj['utm_medium'] == 'cpc' && utmobj['utm_campaign'] ==
+        'QunamiBrowserOld') {
+        document.getElementById('download_button').style.display = 'block';
+      } else {
+        var locationNew = location + '&start_download=true' + '&src_browser=' + isWebView;
+        window.location.href = 'intent://' + window.location.hostname + '/download_android_app/downloadNew.html' +
+          locationNew +
+          '#Intent;scheme=http;package=com.android.chrome;S.browser_fallback_url=https://www.qunami.co/download_android_app/downloadNew.html' +
+          locationNew + ';end';
+      }
+      // if (utmobj['utm_source'] == 'facebook' && utmobj['utm_medium'] == 'cpc' && utmobj['utm_campaign'] ==
+      //   'QunamiBrowserNew') {
+      //   var locationNew = location + '&start_download=true' + '&src_browser=' + isWebView;
+
+      //   window.location.href = 'intent://' + window.location.hostname + '/download_android_app/downloadNew.html' +
+      //     locationNew +
+      //     '#Intent;scheme=http;package=com.android.chrome;S.browser_fallback_url=https://www.qunami.co/download_android_app/downloadNew.html' +
+      //     locationNew + ';end';
+
+
+      // } else if (utmobj['utm_source'] == 'conversionx') {
+      //   var locationNew = location + '&start_download=true' + '&src_browser=' + isWebView;
+      //   console.log('conversionx');
+
+      //   window.location.href = 'intent://' + window.location.hostname + '/download_android_app/downloadNew.html' +
+      //     locationNew +
+      //     '#Intent;scheme=http;package=com.android.chrome;S.browser_fallback_url=https://www.qunami.co/download_android_app/downloadNew.html' +
+      //     locationNew + ';end'
+      // } else if(utmobj['utm_source'] == 'facebook' && utmobj['utm_medium'] == 'cpc' && utmobj['utm_campaign'] ==
+      //   'QunamiBrowserOld'){ //BrowserOld and other cases
+      //   document.getElementById('download_button').style.display = 'block';
+      //   // $("#basicModal").modal();
+      // }
+      // else{
+
+      // }
+
+    } else {
+      // setTimeout(()=>{
+      // },500)
+      window.location.href = 'intent://' + window.location.hostname +
+        '/download_android_app/downloadNew.html?start_download=true&src_broswer=' + isWebView + location +
+        '#Intent;scheme=http;package=com.android.chrome;S.browser_fallback_url=https://www.qunami.co/download_android_app/downloadNew.html?start_download=true;end'
+      // window.location.href = 'intent://192.168.0.54:8000/downloadNew.html?start_download=true&src_broswer=' +
+      //   isWebView + location +
+      //   '#Intent;scheme=http;package=com.android.chrome;S.browser_fallback_url=https://www.qunami.co/download_android_app/downloadNew.html?start_download=true;end'
+    }
+
+    // window.location.href ='intent://192.168.0.54:8000/download.html?start_download=true#Intent;scheme=http;package=com.android.chrome;S.browser_fallback_url=https://qunami.co;end'
+
   }
 
-  function downloadApp() {
+  function openModal() {
+    $("#basicModal").modal();
+
+  }
+
+  function downloadApp() { //called through modal button click
 
     ga('send', {
       hitType: 'event',
       eventCategory: 'download_app',
       eventAction: 'apk',
-      eventLabel: 'android_app'
+      eventLabel: isWebView
     }); //send google anylytics an event
 
-    // console.log('hello')// download link here
     var loc = window.location.search;
 
-    console.log(loc)
+    // console.log(loc)
     if (loc != '') {
       var location = window.location.search;
       // console.log(location)
@@ -373,56 +471,93 @@
         utmobj[str[0]] = str[1]
       });
       var trackobj = {}
-        locationPara = locationPara == undefined ? '' : locationPara;
-        trackobj['url_params'] = locationPara
-        fbq('trackCustom', 'download_qunami_app_button_click', trackobj);
-        if(utmobj['utm_source'] == 'facebook' && utmobj['utm_medium'] == 'cpc' && utmobj['utm_campaign'] ==
-        'QunamiBrowserOld' ){
-          window.location = "https://s3.ap-south-1.amazonaws.com/apk.qunami/QunamiV1.apk";
-        }
-        else if(utmobj['utm_source'] == 'facebook' && utmobj['utm_medium'] == 'cpc' && utmobj['utm_campaign'] ==
-        'QunamiBrowserNew'){
-          ajaxDownload(); 
-        }
-      
+      locationPara = locationPara == undefined ? '' : locationPara;
+      trackobj['url_params'] = locationPara
+      fbq('trackCustom', 'download_qunami_app_button_click', trackobj);
+      if (utmobj['utm_source'] == 'facebook' && utmobj['utm_medium'] == 'cpc' && utmobj['utm_campaign'] ==
+        'QunamiBrowserOld') {
+        var txt = document.getElementById('download_txt');
+        txt.innerHTML = "Downloading... "
+        window.location = "http://d2rfwiorfg5fzv.cloudfront.net/QunamiV1.apk"; //new link from cloudfront
+      } else if (utmobj['utm_source'] == 'facebook' && utmobj['utm_medium'] == 'cpc' && utmobj['utm_campaign'] ==
+        'QunamiBrowserNew') {
+        ajaxDownload(); //now broswerNew is redirecting to new chrome tab.. this condition actually never runs
+      } else {
+        var txt = document.getElementById('download_txt');
+        txt.innerHTML = "Downloading... "
+        window.location = "http://d2rfwiorfg5fzv.cloudfront.net/QunamiV1.apk";
       }
-      // console.log(utmobj)
-      // if (utmobj['android_app_type'] == 'Qunami') {
-      //   var href = 'https://play.google.com/store/apps/details?id=co.qunami&' + window.location.search.split('?referrer=')[1];
-      //   window.location.href = href;
-      // } else
-      // if (utmobj['utm_source'] == 'facebook' && utmobj['utm_medium'] == 'cpc' && utmobj['utm_campaign'] ==
-      //   'Qunami-Quiz') {
-      //   var trackobj = {}
-      //   locationPara = locationPara == undefined ? '' : locationPara;
-      //   trackobj['url_params'] = locationPara
-      //   fbq('trackCustom', 'download_qunami_app_button_click', trackobj);
-      //   window.location = "https://s3.ap-south-1.amazonaws.com/apk.qunami/QunamiV2.apk";
-      // } else if (utmobj['utm_source'] == 'facebook' && utmobj['utm_medium'] == 'cpc' && utmobj['utm_campaign'] ==
-      //   'Matches-Qunami-Quiz') {
-      //   var trackobj = {}
-      //   locationPara = locationPara == undefined ? '' : locationPara;
-      //   trackobj['url_params'] = locationPara
-      //   fbq('trackCustom', 'download_qunami_app_button_click', trackobj);
-      //   window.location = "https://s3.ap-south-1.amazonaws.com/apk.qunami/QunamiV3.apk";
-      // } else {
-             
-      
-     else {
-      // console.log("else called");
-      // alert("else called");
+
+    } else { //organic users // now getting redirected from download_initial_handle();
       ajaxDownload();
       // window.location = "https://s3.ap-south-1.amazonaws.com/apk.qunami/QunamiV1.apk";
-
     }
   }
-  $('#myModal').on('shown.bs.modal', function () {
-    $('#myInput').trigger('focus')
-  })
-  var downloading = false;
+  // console.log(utmobj)
+  // if (utmobj['android_app_type'] == 'Qunami') {
+  //   var href = 'https://play.google.com/store/apps/details?id=co.qunami&' + window.location.search.split('?referrer=')[1];
+  //   window.location.href = href;
+  // } else
+  // if (utmobj['utm_source'] == 'facebook' && utmobj['utm_medium'] == 'cpc' && utmobj['utm_campaign'] ==
+  //   'Qunami-Quiz') {
+  //   var trackobj = {}
+  //   locationPara = locationPara == undefined ? '' : locationPara;
+  //   trackobj['url_params'] = locationPara
+  //   fbq('trackCustom', 'download_qunami_app_button_click', trackobj);
+  //   window.location = "https://s3.ap-south-1.amazonaws.com/apk.qunami/QunamiV2.apk";
+  // } else if (utmobj['utm_source'] == 'facebook' && utmobj['utm_medium'] == 'cpc' && utmobj['utm_campaign'] ==
+  //   'Matches-Qunami-Quiz') {
+  //   var trackobj = {}
+  //   locationPara = locationPara == undefined ? '' : locationPara;
+  //   trackobj['url_params'] = locationPara
+  //   fbq('trackCustom', 'download_qunami_app_button_click', trackobj);
+  //   window.location = "https://s3.ap-south-1.amazonaws.com/apk.qunami/QunamiV3.apk";
+  // } else {
+  var src_b
+
+  function checkDownload() { //to start auto download after opening chrome
+    window.Clipboard.copy(window.location.href);
+    var loc = window.location.search;
+    if (loc != '') {
+      var locationPara = loc.split('?')[1];
+      var utms = locationPara.split('&');
+      src_b = locationPara.search('src_browser') != -1 ? locationPara.split('src_browser=')[1] : isWebView;
+      //  document.getElementById('ua').innerHTML = src_b;
+      var utmobj = {};
+      utms.forEach((element) => {
+        // console.log("auto download ", element)
+        var str = element.split('=');
+        // console.log(str);
+        if (str[0] == 'start_download') {
+          console.log('starting now');
+          //  window.alert(src_b);
+
+          $("#basicModal").modal();
+          ga('send', {
+            hitType: 'event',
+            eventCategory: 'download_app',
+            eventAction: 'apk',
+            eventLabel: src_b
+          }); //send google anylytics an event
+          locationPara = locationPara == undefined ? '' : locationPara;
+          var trackobj = {}
+          trackobj['url_params'] = locationPara
+          fbq('trackCustom', 'download_qunami_app_button_click', trackobj);
+          // console.log('hello')// download link here
+          ajaxDownload.call();
+        }
+
+      })
+    }
+
+  }
+  var downloading = false; //to prevent multiple clicks on download button
+
   function ajaxDownload() {
     var request = new XMLHttpRequest(),
-        gotFiftyPercent = false;
+      gotFiftyPercent = false;
+    let src_broswer = src_b ? src_b : isWebView;
+    // console.log(src_b,src_broswer);
     request.addEventListener('readystatechange', function (e) {
       // alert(JSON.stringify(e));
       if (request.readyState == 2 && request.status == 200) {
@@ -431,7 +566,7 @@
           hitType: 'event',
           eventCategory: 'download_app',
           eventAction: 'download_started',
-          eventLabel: 'android_app'
+          eventLabel: src_broswer
         });
         console.log("download_started")
         // alert("down started");
@@ -447,8 +582,9 @@
           hitType: 'event',
           eventCategory: 'download_app',
           eventAction: 'download_complete',
-          eventLabel: 'android_app'
+          eventLabel: src_broswer
         });
+
         download(request.response, 'qunami.apk', 'application/vnd.android.package-archive');
         downloading = false;
       }
@@ -470,14 +606,14 @@
           hitType: 'event',
           eventCategory: 'download_app',
           eventAction: 'download_50',
-          eventLabel: 'android_app'
+          eventLabel: src_broswer
         });
       }
       // console.log("percent_complete ",percent_complete);
     });
     request.responseType = 'blob';
     // request.open('get', 'QunamiV1.apk');
-    request.open('get', 'https://s3.ap-south-1.amazonaws.com/apk.qunami/QunamiV1.apk');
+    request.open('get', 'https://d2rfwiorfg5fzv.cloudfront.net/QunamiV1.apk');
     // request.setRequestHeader('Access-Control-Allow-Origin','http://192.168.0.54:8000');
 
     request.send();

@@ -69,7 +69,7 @@ $(function () {
                 }
                 else{
                   var loc = window.location.search;
-                    window.location.href = "download.html"+loc; //redirect to facebook campaign
+                    window.location.href = "download.html"+loc; //redirect to final download page
                 }
             }, 3000);
 

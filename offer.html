@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Download App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="Qunami app download" />
+    <meta property="og:url" content="http://qunami.co/download_android_app/offer.html" />
+    <meta property="og:image" content="https://i1.sndcdn.com/artworks-000290420004-cl8vbk-t500x500.jpg">
+    <meta property="og:image:width" content="300" />
+    <meta property="og:image:height" content="300" />
+    <meta property="og:type" content="website" />
+    <meta name="author" content="Gaurav Dhenwal" />
+    <link rel="stylesheet" href="animate.css" />
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="offer.css">
+    <script>
+        (function (i, s, o, g, r, a, m) {
+          i['GoogleAnalyticsObject'] = r;
+          i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+          }, i[r].l = 1 * new Date();
+          a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+          a.async = 1;
+          a.src = g;
+          m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    
+        ga('create', 'UA-119799917-1', 'auto');
+        ga('send', 'pageview');
+      </script>
+</head>
+
+<body>
+
+    <div class="flex-box">
+        <div class="header">
+            <img src="images/offer/ic_header.svg">
+        </div>
+        <div class="wheel-bg">
+            <img class="arrow" src="images/offer/ic_arrow.svg">
+            <img style="z-index: 1;" src="images/offer/ic_spinner_bg.svg" />
+            <div class="wheel-spinner">
+                <img class="center" src="images/offer/ic_spinner_center.svg" />
+                <img id="wheel" src="images/offer/ic_bonus.svg">
+            </div>
+        </div>
+        <div class="btn-spin">
+            <img src="images/offer/ic_spin_now.svg" onclick="spin()">
+        </div>
+    </div>
+    <div class="modal animated bounceIn" id="basicModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+
+                <div class="modal-body">
+                    <div class="row justify-content-center">
+                        <div class="col-7">
+                            <img class="char" src="images/offer/ic_claim_offer.svg" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <h2 class="m-header text-center">Congratulations</h2>
+                            <p class="subtext text-center">You will get 100% bonus on your first deposit</p>
+                        </div>
+                    </div>
+                    <button class="btn btn-block btn-claim" onclick="download()">CLAIM YOUR BONUS</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.2/howler.core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <script src="mobile-detect.min.js"></script>
+</body>
+<script type="text/javascript">
+var md = new MobileDetect(window.navigator.userAgent);
+var os  = md.os();
+
+    var spinSound = new Howl({
+        src: ['/download_android_app/sounds/spinning_wheel.mp3']
+    });
+    spinSound.load();
+    var bonusSound = new Howl({
+        src: ['/download_android_app/sounds/pass_appears.mp3']
+    });
+    bonusSound.load();
+    spinning = false;
+
+    function spin() {
+        if (!spinning) {
+            ga('send', {
+            hitType: 'event',
+            eventCategory: 'bonus_spinner',
+            eventAction: 'spinner_started',
+        });
+            spinning = true;
+            spinSound.play();
+            var wheel = document.getElementById('wheel');
+            wheel.style.transform = 'rotate(3500deg)';
+            setTimeout(() => {
+                //modal open
+                bonusSound.play();
+                
+                $("#basicModal").modal({
+                    backdrop: 'static',
+                    keyboard: false
+                });
+            }, 5500);
+
+        }
+    }
+
+    function download() {
+        ga('send', {
+                    hitType: 'event',
+                    eventCategory: 'bonus_spinner',
+                    eventAction: 'bonus_claim_btn_clicked',
+                });
+        if (os === 'AndroidOS') {
+            //redirect to download_android_app
+            var href = "https://" + window.location.hostname + "/download_android_app/download.html" + window.location.search;
+            window.location.href = href;
+        } else if (os === 'iOS') {
+            var href = "https://" + window.location.hostname + "/download_ios_app/" + window.location.search;
+            window.location.href = href;
+        }
+    }
+</script>
+
+</html>

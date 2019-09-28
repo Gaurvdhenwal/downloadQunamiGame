@@ -27,12 +27,12 @@ var os  = md.os();
 function proceed(){
 if(os === 'AndroidOS'){
   //redirect to download_android_app
-  var href = "http://qunami.co/download_android_app/"+window.location.search;
+  var href = "https://"+window.location.hostname+"/download_android_app/download.html"+window.location.search;
 
   window.location.href = href;
 }
 else if(os === 'iOS'){
-  var href = "http://qunami.co/download_ios_app/"+window.location.search;
+  var href = "https://"+window.location.hostname+"/download_ios_app/"+window.location.search;
   window.location.href = href;
 
 }
