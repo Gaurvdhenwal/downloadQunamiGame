@@ -11,18 +11,13 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="download_v2.css" />
+  <link rel="stylesheet" href="download_v4.css" />
   <link rel="stylesheet" href="animate.css" />
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
   <script src="download_file.js"></script>
   <script src="mobile-detect.min.js"></script>
-  <style>
-    @font-face {
-      font-family: Alberto;
-      font-style: normal;
-      src: url(font/Alberto-Regular.ttf);
-    }
-  </style>
+
+
 
   <script>
     ! function (f, b, e, v, n, t, s) {
@@ -84,121 +79,53 @@
     ga('send', 'pageview');
   </script>
   <!-- End Google Analytics -->
+
 </head>
+<body onload="downloadInitalHandle()">
 
-<body class="body" onload="downloadInitalHandle()">
-  <div class="modal" id="basicModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <img src="images/ic_close.svg">
-          </button>
+    <div class="main-cont">
+        <div class="top-header-logo">
+            <img src="./images/ic_qunami_white.svg"/>
         </div>
-        <div class="modal-body">
-          <div class="row">
-            <div class="col-10 offset-1">
-              <img class="percent_secure" src="images/won.png">
+        <div class="cash-icon">
+            <h2 class="cash-txt">Daily win upto</h2>
+            <div class="cash-logo">
+                <img src="./images/ic_5lac.png" />
             </div>
-          </div>
-          <div class="row">
-            <div class="col-12 percent_points">
-              <h2 class="header-msg">
-                Your turn to win cash!
-              </h2>
-              <p class="disclaimer">Please confirm on your phone that you trust Qunami App</p>
+            <img class="button" src="./images/ic_button.png" id="download_button" onclick="javascript:Clipboard.copy(window.location.href);downloadApp();"/>
+        </div>    
+        <div class="winners-cont">
+            <h2 class="winner-header">- our daily winners -</h2>
+            <div class="row">
+                <div class="col-4">
+                    <div class="winner-card">
+                        <img class="card-img" src="./images/ic_satya.png">
+                    </div>
+                    <p class="u-name">Satya Kumar</p>
+                    <p class="u-prize">₹70,000</p>
+                </div>
+                <div class="col-4">
+                    <div class="winner-card">
+                        <img class="card-img" src="./images/ic_rahul.png">
+                    </div>
+                    <p class="u-name">Rahul Sharma</p>
+                    <p class="u-prize">₹90,000</p>
+
+                </div>
+                <div class="col-4">
+                    <div class="winner-card">
+                        <img class="card-img" src="./images/ic_pooja.png">
+                    </div>
+                    <p class="u-name">Pooja Bist</p>
+                    <p class="u-prize">₹87,000</p>
+
+                </div>
             </div>
-          </div>
-          <div class="row">
-            <a type="button" class="btn got_it_button" onclick="downloadApp();">
-              <span id="download_txt"> Download now</span>
-              <div id="download_progress"></div>
-            </a>
-            <div class="logs"></div>
-          </div>
+        </div>    
+    </div>
 
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="contheader w-container">
-    <img src="https://uploads-ssl.webflow.com/5b28bb33c27e7d7e06dbec4e/5b30e0bf04d4f56ecf2a97bb_ic_qunami_white.svg"
-      width="150" class="image" />
-    <!-- <img src="images/icon.png" id="playerIcon" /> -->
-    <h1 class="heading" id="general-heading">Get the Full Experience</h1>
-    <h1 class="heading" id="ghostMatch-heading">Play <span id="ghost-name">Qunami</span>'s quiz challenge</h1>
-    <h1 class="heading" id="ghostMatch-heading-2">By downloading the app now</h1>
-  </div>
-  <div class="cont_carousal_one w-container">
-    <div>
-      <p class="slider-txt">Best multiplayer<br /> quiz game</p>
-    </div>
-    <div>
-      <p class="slider-txt">Play with<br /> 1 lakh+ users</p>
-    </div>
-    <div>
-      <p class="slider-txt">Win paytm<br /> Cash prizes</p>
-      <!-- <img class="paytm_logo" src="images/new/paytm_logo.png"/> -->
-    </div>
-  </div>
-  <div class="download-cont w-container">
-    <!-- <a href="http://192.168.0.54:8000/download.html?start_download=true" class="download_button"
-      target="_new">Download</a> -->
-    <!-- intent://192.168.0.54:8000/download.html?start_download=true#Intent;scheme=http;package=com.android.chrome;S.browser_fallback_url=https://qunami.co;end -->
-    <button onclick="javascript:Clipboard.copy(window.location.href);openModal();" class="download_button"
-      id="download_button" target="_new"><img src="images/chrome_browser.svg" data-target="#basicModal"
-        data-toggle="modal"> Download app</button>
-    <!-- <img src="images/new/button.png" class="download_button" id="apk_download"
-      onclick="redirectTest()" data-target="#basicModal" data-toggle="modal" /> -->
-    <!-- <img src="images/new/button.png" class="download_button" id="apk_download"
-      onclick="javascript:Clipboard.copy(window.location.href)" data-target="#basicModal" data-toggle="modal" /> -->
-  </div>
-  <div class="cont_carousal_two w-container">
-    <div>
-      <div class="phone-cont">
-        <img class="phone-img" src="images/new/screnshot_1.png">
-      </div>
-    </div>
-    <div>
-      <div class="phone-cont">
-        <img class="phone-img" src="images/new/screnshot_2.png">
-      </div>
-    </div>
-    <div>
-      <div class="phone-cont">
-        <img class="phone-img" src="images/new/screnshot_3.png">
-      </div>
-    </div>
-  </div>
-  <div class="container great-going-cont">
-    <h2 class="great_going animated">
-      great
-    </h2>
-    <h2 class="great_going animated">going</h2>
-  </div>
-  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-  <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-  <script>
-    $(document).ready(function () {
-      $('.cont_carousal_one, .cont_carousal_two').slick({
-        autoplay: true,
-        arrows: false,
-        // centerMode:false,
-        draggable: false,
-        mobileFirst: true,
-
-      });
-    });
-  </script>
-  <script src="download_v2.js"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-
-  <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-  </script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
   </script>
   <style>
@@ -210,414 +137,333 @@
       display: block;
     }
   </style>
-</body>
-<script>
-  var md = new MobileDetect(window.navigator.userAgent);
-  var uAgent = md.ua;
-  console.log(uAgent);
-  // document.getElementById('download_button').innerHTML = uAgent;
-  // console.log(md.version('Webkit'),md);
-  var str = /wv/; // to search for webview string in useragent
-  // const redmiPhonesStr = /Redmi/
-  // const miPhoneStr = /Mi/
-  // const samsPhoneStr
-  let browserName;
-  let browserVer;
-  if (uAgent.search(/Redmi/) != -1) {
-    console.log("caught Redmi", uAgent.search(/Redmi/));
-    // document.getElementById('download_button').innerHTML = 'Redmi';
-  } else if (uAgent.search(/Mi/) != -1) {
-    console.log("caught Mi");
-    // document.getElementById('download_button').innerHTML = 'Mi';
-  }
-  if (md.is('UCBrowser')) {
-    browserName = 'UCBrowser'
-    browserVer = md.version('UCBrowser');
-  } else if (md.is('SamsungBrowser')) {
-    browserName = 'SamsungBroswer'
-    browserVer = md.version('SamsungBrowser');
-  } else if (md.is('Chrome')) {
-    browserName = 'Chrome';
-    browserVer = md.version('Chrome');
-  }
-  var uBrowser = browserName + "_" + browserVer;
-  var isWebView = uAgent.search(str) != -1 ? 'Webview' : uBrowser;
-  // document.getElementById('ua').innerHTML = isWebView;
-
-
-  window.Clipboard = (function (window, document, navigator) {
-    var textArea,
-      copy;
-
-    function isOS() {
-      return navigator.userAgent.match(/ipad|iphone/i);
+  <script>
+    var md = new MobileDetect(window.navigator.userAgent);
+    var uAgent = md.ua;
+    console.log(uAgent);
+    // document.getElementById('download_button').innerHTML = uAgent;
+    // console.log(md.version('Webkit'),md);
+    var str = /wv/; // to search for webview string in useragent
+    // const redmiPhonesStr = /Redmi/
+    // const miPhoneStr = /Mi/
+    // const samsPhoneStr
+    let browserName;
+    let browserVer;
+    if (uAgent.search(/Redmi/) != -1) {
+      console.log("caught Redmi", uAgent.search(/Redmi/));
+      // document.getElementById('download_button').innerHTML = 'Redmi';
+    } else if (uAgent.search(/Mi/) != -1) {
+      console.log("caught Mi");
+      // document.getElementById('download_button').innerHTML = 'Mi';
     }
-
-    function createTextArea(text) {
-      textArea = document.createElement('textArea');
-      textArea.value = text;
-      document.body.appendChild(textArea);
+    if (md.is('UCBrowser')) {
+      browserName = 'UCBrowser'
+      browserVer = md.version('UCBrowser');
+    } else if (md.is('SamsungBrowser')) {
+      browserName = 'SamsungBroswer'
+      browserVer = md.version('SamsungBrowser');
+    } else if (md.is('Chrome')) {
+      browserName = 'Chrome';
+      browserVer = md.version('Chrome');
     }
-
-    function selectText() {
-      var range,
-        selection;
-
-      if (isOS()) {
-        range = document.createRange();
-        range.selectNodeContents(textArea);
-        selection = window.getSelection();
-        selection.removeAllRanges();
-        selection.addRange(range);
-        textArea.setSelectionRange(0, 999999);
-      } else {
-        textArea.select();
+    var uBrowser = browserName + "_" + browserVer;
+    var isWebView = uAgent.search(str) != -1 ? 'Webview' : uBrowser;
+    // document.getElementById('ua').innerHTML = isWebView;
+  
+  
+    window.Clipboard = (function (window, document, navigator) {
+      var textArea,
+        copy;
+  
+      function isOS() {
+        return navigator.userAgent.match(/ipad|iphone/i);
       }
-    }
-
-    function verifyValue(url, clip) {
-      // console.log(url, clip)
-      $.post(`https://script.google.com/macros/s/AKfycbzNmNivQ9tk2LQU3BuDb2DzTV0gvLOkBnmN4q5kiSJYB_-nIo_6/exec`, {
-          data: url,
-          para: clip
-        },
-        function (data, success) {
-
+  
+      function createTextArea(text) {
+        textArea = document.createElement('textArea');
+        textArea.value = text;
+        document.body.appendChild(textArea);
+      }
+  
+      function selectText() {
+        var range,
+          selection;
+  
+        if (isOS()) {
+          range = document.createRange();
+          range.selectNodeContents(textArea);
+          selection = window.getSelection();
+          selection.removeAllRanges();
+          selection.addRange(range);
+          textArea.setSelectionRange(0, 999999);
+        } else {
+          textArea.select();
         }
-      )
-    }
-
-    function copyToClipboard() {
-      document.execCommand('copy');
-      document.body.removeChild(textArea);
-    }
-
-    copy = function (text) { //copy current url for app to read and send to backend;
-      console.log("event ", text)
-      ga('send', {
-        hitType: 'event',
-        eventCategory: 'download_app',
-        eventAction: 'download_intent',
-        eventLabel: isWebView
-      });
-      var loc = window.location.search;
-      console.log(loc)
-      if (loc != '') { // need to fill
-        var locationPara = text.split('?')[1];
-        var newtext = decodeURIComponent(locationPara)
+      }
+  
+      function verifyValue(url, clip) {
+        // console.log(url, clip)
+        $.post(`https://script.google.com/macros/s/AKfycbzNmNivQ9tk2LQU3BuDb2DzTV0gvLOkBnmN4q5kiSJYB_-nIo_6/exec`, {
+            data: url,
+            para: clip
+          },
+          function (data, success) {
+  
+          }
+        )
+      }
+  
+      function copyToClipboard() {
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+      }
+  
+      copy = function (text) { //copy current url for app to read and send to backend;
+        console.log("event ", text)
+        ga('send', {
+          hitType: 'event',
+          eventCategory: 'download_app',
+          eventAction: 'download_intent',
+          eventLabel: isWebView
+        });
+        var loc = window.location.search;
+        console.log(loc)
+        if (loc != '') { // need to fill
+          var locationPara = text.split('?')[1];
+          var newtext = decodeURIComponent(locationPara)
+          var utms = locationPara.split('&');
+          var flag = false;
+          var utmobj = {}
+          utms.forEach(element => {
+            // console.log("ty ", element)
+            var str = element.split('=')
+            utmobj[str[0]] = str[1]
+            if (str[0] == 'friend_match' || str[0] == 'ghost_match') {
+              flag = true
+              // console.log("clipboard copy done")
+              var without_hash = text.split('#')[0]
+              if (str[0] == 'friend_match')
+                var url = without_hash.split("friend_match=")
+              else
+                var url = without_hash.split("ghost_match=")
+              url[1]['src_browser'] = isWebView;
+              // console.log("fm****"+url)
+              createTextArea(url[1]);
+              selectText();
+              verifyValue(text, url[1]);
+              copyToClipboard();
+            } else if (str[0] == 'referrer') {
+              flag = true
+              var without_hash = newtext.split('#')[0]
+              var url = without_hash.split("referrer=")
+              // console.log("wo hash", url, typeof url)
+              var newref = url[1].split('&')
+              var refobj = {}
+              newref.forEach(element => {
+                // console.log(element)
+                var key = element.split('=')[0]
+                var value = element.split('=')[1]
+                refobj[key] = value
+              })
+              refobj['src_browser'] = isWebView;
+              // console.log("refobj",refobj)
+              createTextArea(text.split('?')[0] + '?' + JSON.stringify(refobj));
+              selectText();
+              copyToClipboard();
+            }
+          });
+          if (!flag) {
+            utmobj['src_browser'] = isWebView; //to send source_browser => app;
+            // console.log("url obj"+ text.split('?')[0] + '?' + JSON.stringify(utmobj));
+            createTextArea(text.split('?')[0] + '?' + JSON.stringify(utmobj));
+            selectText();
+            copyToClipboard();
+            verifyValue(text, locationPara);
+          }
+          // console.log(text, utmobj)
+          // console.log("lolololol", sendToPlaystore)
+          // if (sendToPlaystore) {
+          //   var href = 'https://play.google.com/store/apps/details?id=co.qunami&' + window.location.search.split('&')[1];
+          //   window.location.href = href;
+          // }
+  
+          // createTextArea(friend_match[1]);
+          // selectText();
+          // copyToClipboard();
+  
+        }
+  
+      };
+  
+      return {
+        copy: copy
+      };
+    })(window, document, navigator);
+  </script>
+  <script>
+    function downloadInitalHandle() {
+      
+      var location = window.location.search;
+      if (location != '') {
+        // console.log(location)
+        var locationPara = location.split('?')[1];
         var utms = locationPara.split('&');
-        var flag = false;
+        var utmobj = {}
+        // console.log(location + '&start_download=true');
+        utms.forEach(element => {
+          var str = element.split('=')
+          utmobj[str[0]] = str[1];
+  
+        });
+  
+        if (utmobj['utm_source'] == 'facebook' && utmobj['utm_medium'] == 'cpc' && utmobj['utm_campaign'] ==
+          'QunamiBrowserOld') {
+          document.getElementById('download_button').style.display = 'block';
+        } else {
+          var locationNew = location + '&start_download=true' + '&src_browser=' + isWebView;
+          window.location.href = 'intent://' + window.location.hostname + '/download_android_app/downloadNew.html' +
+            locationNew +
+            '#Intent;scheme=http;package=com.android.chrome;S.browser_fallback_url=https://www.qunami.co/download_android_app/downloadNew.html' +
+            locationNew + ';end';
+        }
+  
+      } else {
+        // setTimeout(()=>{
+        // },500)
+        window.location.href = 'intent://' + window.location.hostname +
+          '/download_android_app/downloadNew.html?start_download=true&src_broswer=' + isWebView + location +
+          '#Intent;scheme=http;package=com.android.chrome;S.browser_fallback_url=https://www.qunami.co/download_android_app/downloadNew.html?start_download=true;end'
+        // window.location.href = 'intent://192.168.100.3:8080/downloadNew.html?start_download=true&src_broswer=' +
+        //   isWebView + location +
+        //   '#Intent;scheme=http;package=com.android.chrome;S.browser_fallback_url=https://www.qunami.co/download_android_app/downloadNew.html?start_download=true;end'
+      }
+  
+      // window.location.href ='intent://192.168.0.54:8000/download.html?start_download=true#Intent;scheme=http;package=com.android.chrome;S.browser_fallback_url=https://qunami.co;end'
+  
+    }
+   
+    function downloadApp() { //called through modal button click
+  
+      var loc = window.location.search;
+  
+      // console.log(loc)
+      if (loc != '') {
+        var location = window.location.search;
+        // console.log(location)
+        var locationPara = location.split('?')[1];
+        var utms = locationPara.split('&');
         var utmobj = {}
         utms.forEach(element => {
-          // console.log("ty ", element)
           var str = element.split('=')
           utmobj[str[0]] = str[1]
-          if (str[0] == 'friend_match' || str[0] == 'ghost_match') {
-            flag = true
-            // console.log("clipboard copy done")
-            var without_hash = text.split('#')[0]
-            if (str[0] == 'friend_match')
-              var url = without_hash.split("friend_match=")
-            else
-              var url = without_hash.split("ghost_match=")
-            url[1]['src_browser'] = isWebView;
-            // console.log("fm****"+url)
-            createTextArea(url[1]);
-            selectText();
-            verifyValue(text, url[1]);
-            copyToClipboard();
-          } else if (str[0] == 'referrer') {
-            flag = true
-            var without_hash = newtext.split('#')[0]
-            var url = without_hash.split("referrer=")
-            // console.log("wo hash", url, typeof url)
-            var newref = url[1].split('&')
-            var refobj = {}
-            newref.forEach(element => {
-              // console.log(element)
-              var key = element.split('=')[0]
-              var value = element.split('=')[1]
-              refobj[key] = value
-            })
-            refobj['src_browser'] = isWebView;
-            // console.log("refobj",refobj)
-            createTextArea(text.split('?')[0] + '?' + JSON.stringify(refobj));
-            selectText();
-            copyToClipboard();
-          }
         });
-        if (!flag) {
-          utmobj['src_browser'] = isWebView; //to send source_browser => app;
-          // console.log("url obj"+ text.split('?')[0] + '?' + JSON.stringify(utmobj));
-          createTextArea(text.split('?')[0] + '?' + JSON.stringify(utmobj));
-          selectText();
-          copyToClipboard();
-          verifyValue(text, locationPara);
-        }
-        // console.log(text, utmobj)
-        // console.log("lolololol", sendToPlaystore)
-        // if (sendToPlaystore) {
-        //   var href = 'https://play.google.com/store/apps/details?id=co.qunami&' + window.location.search.split('&')[1];
-        //   window.location.href = href;
-        // }
-
-        // createTextArea(friend_match[1]);
-        // selectText();
-        // copyToClipboard();
-
-      }
-
-    };
-
-    return {
-      copy: copy
-    };
-  })(window, document, navigator);
-</script>
-<script>
-  function downloadInitalHandle() {
-    document.getElementById('download_button').style.display = 'none';
-
-    var location = window.location.search;
-    if (location != '') {
-      // console.log(location)
-      var locationPara = location.split('?')[1];
-      var utms = locationPara.split('&');
-      var utmobj = {}
-      // console.log(location + '&start_download=true');
-      utms.forEach(element => {
-        var str = element.split('=')
-        utmobj[str[0]] = str[1];
-
-      });
-
-      if (utmobj['utm_source'] == 'facebook' && utmobj['utm_medium'] == 'cpc' && utmobj['utm_campaign'] ==
+        var trackobj = {}
+        
+        
+        if (utmobj['utm_source'] == 'facebook' && utmobj['utm_medium'] == 'cpc' && utmobj['utm_campaign'] ==
         'QunamiBrowserOld') {
-        document.getElementById('download_button').style.display = 'block';
-      } else {
-        var locationNew = location + '&start_download=true' + '&src_browser=' + isWebView;
-        window.location.href = 'intent://' + window.location.hostname + '/download_android_app/downloadNew.html' +
-          locationNew +
-          '#Intent;scheme=http;package=com.android.chrome;S.browser_fallback_url=https://www.qunami.co/download_android_app/downloadNew.html' +
-          locationNew + ';end';
-      }
-      // if (utmobj['utm_source'] == 'facebook' && utmobj['utm_medium'] == 'cpc' && utmobj['utm_campaign'] ==
-      //   'QunamiBrowserNew') {
-      //   var locationNew = location + '&start_download=true' + '&src_browser=' + isWebView;
-
-      //   window.location.href = 'intent://' + window.location.hostname + '/download_android_app/downloadNew.html' +
-      //     locationNew +
-      //     '#Intent;scheme=http;package=com.android.chrome;S.browser_fallback_url=https://www.qunami.co/download_android_app/downloadNew.html' +
-      //     locationNew + ';end';
-
-
-      // } else if (utmobj['utm_source'] == 'conversionx') {
-      //   var locationNew = location + '&start_download=true' + '&src_browser=' + isWebView;
-      //   console.log('conversionx');
-
-      //   window.location.href = 'intent://' + window.location.hostname + '/download_android_app/downloadNew.html' +
-      //     locationNew +
-      //     '#Intent;scheme=http;package=com.android.chrome;S.browser_fallback_url=https://www.qunami.co/download_android_app/downloadNew.html' +
-      //     locationNew + ';end'
-      // } else if(utmobj['utm_source'] == 'facebook' && utmobj['utm_medium'] == 'cpc' && utmobj['utm_campaign'] ==
-      //   'QunamiBrowserOld'){ //BrowserOld and other cases
-      //   document.getElementById('download_button').style.display = 'block';
-      //   // $("#basicModal").modal();
-      // }
-      // else{
-
-      // }
-
-    } else {
-      // setTimeout(()=>{
-      // },500)
-      window.location.href = 'intent://' + window.location.hostname +
-        '/download_android_app/downloadNew.html?start_download=true&src_broswer=' + isWebView + location +
-        '#Intent;scheme=http;package=com.android.chrome;S.browser_fallback_url=https://www.qunami.co/download_android_app/downloadNew.html?start_download=true;end'
-      // window.location.href = 'intent://192.168.0.54:8000/downloadNew.html?start_download=true&src_broswer=' +
-      //   isWebView + location +
-      //   '#Intent;scheme=http;package=com.android.chrome;S.browser_fallback_url=https://www.qunami.co/download_android_app/downloadNew.html?start_download=true;end'
-    }
-
-    // window.location.href ='intent://192.168.0.54:8000/download.html?start_download=true#Intent;scheme=http;package=com.android.chrome;S.browser_fallback_url=https://qunami.co;end'
-
-  }
-
-  function openModal() {
-    $("#basicModal").modal();
-
-  }
-
-  function downloadApp() { //called through modal button click
-
-    ga('send', {
-      hitType: 'event',
-      eventCategory: 'download_app',
-      eventAction: 'apk',
-      eventLabel: isWebView
-    }); //send google anylytics an event
-
-    var loc = window.location.search;
-
-    // console.log(loc)
-    if (loc != '') {
-      var location = window.location.search;
-      // console.log(location)
-      var locationPara = location.split('?')[1];
-      var utms = locationPara.split('&');
-      var utmobj = {}
-      utms.forEach(element => {
-        var str = element.split('=')
-        utmobj[str[0]] = str[1]
-      });
-      var trackobj = {}
-      locationPara = locationPara == undefined ? '' : locationPara;
-      trackobj['url_params'] = locationPara
-      fbq('trackCustom', 'download_qunami_app_button_click', trackobj);
-      if (utmobj['utm_source'] == 'facebook' && utmobj['utm_medium'] == 'cpc' && utmobj['utm_campaign'] ==
-        'QunamiBrowserOld') {
-        var txt = document.getElementById('download_txt');
-        txt.innerHTML = "Downloading... "
-        window.location = "http://d2rfwiorfg5fzv.cloudfront.net/QunamiV1.apk"; //new link from cloudfront
-      } else if (utmobj['utm_source'] == 'facebook' && utmobj['utm_medium'] == 'cpc' && utmobj['utm_campaign'] ==
-        'QunamiBrowserNew') {
-        ajaxDownload(); //now broswerNew is redirecting to new chrome tab.. this condition actually never runs
-      } else {
-        var txt = document.getElementById('download_txt');
-        txt.innerHTML = "Downloading... "
-        window.location = "http://d2rfwiorfg5fzv.cloudfront.net/QunamiV1.apk";
-      }
-
-    } else { //organic users // now getting redirected from download_initial_handle();
-      ajaxDownload();
-      // window.location = "https://s3.ap-south-1.amazonaws.com/apk.qunami/QunamiV1.apk";
-    }
-  }
-  // console.log(utmobj)
-  // if (utmobj['android_app_type'] == 'Qunami') {
-  //   var href = 'https://play.google.com/store/apps/details?id=co.qunami&' + window.location.search.split('?referrer=')[1];
-  //   window.location.href = href;
-  // } else
-  // if (utmobj['utm_source'] == 'facebook' && utmobj['utm_medium'] == 'cpc' && utmobj['utm_campaign'] ==
-  //   'Qunami-Quiz') {
-  //   var trackobj = {}
-  //   locationPara = locationPara == undefined ? '' : locationPara;
-  //   trackobj['url_params'] = locationPara
-  //   fbq('trackCustom', 'download_qunami_app_button_click', trackobj);
-  //   window.location = "https://s3.ap-south-1.amazonaws.com/apk.qunami/QunamiV2.apk";
-  // } else if (utmobj['utm_source'] == 'facebook' && utmobj['utm_medium'] == 'cpc' && utmobj['utm_campaign'] ==
-  //   'Matches-Qunami-Quiz') {
-  //   var trackobj = {}
-  //   locationPara = locationPara == undefined ? '' : locationPara;
-  //   trackobj['url_params'] = locationPara
-  //   fbq('trackCustom', 'download_qunami_app_button_click', trackobj);
-  //   window.location = "https://s3.ap-south-1.amazonaws.com/apk.qunami/QunamiV3.apk";
-  // } else {
-  var src_b
-
-  function checkDownload() { //to start auto download after opening chrome
-    window.Clipboard.copy(window.location.href);
-    var loc = window.location.search;
-    if (loc != '') {
-      var locationPara = loc.split('?')[1];
-      var utms = locationPara.split('&');
-      src_b = locationPara.search('src_browser') != -1 ? locationPara.split('src_browser=')[1] : isWebView;
-      //  document.getElementById('ua').innerHTML = src_b;
-      var utmobj = {};
-      utms.forEach((element) => {
-        // console.log("auto download ", element)
-        var str = element.split('=');
-        // console.log(str);
-        if (str[0] == 'start_download') {
-          console.log('starting now');
-          //  window.alert(src_b);
-
-          $("#basicModal").modal();
+          //if browser old show modal and start download;
+          locationPara = locationPara == undefined ? '' : locationPara;
+          trackobj['url_params'] = locationPara
+          fbq('trackCustom', 'download_qunami_app_button_click', trackobj);
           ga('send', {
             hitType: 'event',
             eventCategory: 'download_app',
             eventAction: 'apk',
-            eventLabel: src_b
+            eventLabel: isWebView
           }); //send google anylytics an event
-          locationPara = locationPara == undefined ? '' : locationPara;
-          var trackobj = {}
-          trackobj['url_params'] = locationPara
-          fbq('trackCustom', 'download_qunami_app_button_click', trackobj);
-          // console.log('hello')// download link here
-          ajaxDownload.call();
+          window.location = "http://d2rfwiorfg5fzv.cloudfront.net/QunamiV1.apk"; //new link from cloudfront
+        } 
+      
+         else {
+          var locationNew = location + '&start_download=true' + '&src_browser=' + isWebView;
+          window.location.href = 'intent://' + window.location.hostname + '/download_android_app/downloadNew.html' +
+            locationNew +
+            '#Intent;scheme=http;package=com.android.chrome;S.browser_fallback_url=https://www.qunami.co/download_android_app/downloadNew.html' +
+            locationNew + ';end';
         }
-
-      })
+        
+  
+      } else { //organic users // now getting redirected from download_initial_handle();
+        // ajaxDownload();
+        
+        window.location.href = 'intent://' + window.location.hostname +
+          '/download_android_app/downloadNew.html?start_download=true&src_broswer=' + isWebView + location +
+          '#Intent;scheme=http;package=com.android.chrome;S.browser_fallback_url=https://www.qunami.co/download_android_app/downloadNew.html?start_download=true;end'
+        // window.location = "https://s3.ap-south-1.amazonaws.com/apk.qunami/QunamiV1.apk";
+      }
     }
-
-  }
-  var downloading = false; //to prevent multiple clicks on download button
-
-  function ajaxDownload() {
-    var request = new XMLHttpRequest(),
-      gotFiftyPercent = false;
-    let src_broswer = src_b ? src_b : isWebView;
-    // console.log(src_b,src_broswer);
-    request.addEventListener('readystatechange', function (e) {
-      // alert(JSON.stringify(e));
-      if (request.readyState == 2 && request.status == 200) {
-        // Download is being started
-        ga('send', {
-          hitType: 'event',
-          eventCategory: 'download_app',
-          eventAction: 'download_started',
-          eventLabel: src_broswer
-        });
-        console.log("download_started")
-        // alert("down started");
-        downloading = true;
-
-      } else if (request.readyState == 3) {
-        // Download is under progress
-        console.log("under progress");
-        // alert("under progress");
-
-      } else if (request.readyState == 4) {
-        ga('send', {
-          hitType: 'event',
-          eventCategory: 'download_app',
-          eventAction: 'download_complete',
-          eventLabel: src_broswer
-        });
-
-        download(request.response, 'qunami.apk', 'application/vnd.android.package-archive');
-        downloading = false;
-      }
-    });
-    request.addEventListener('progress', function (e) {
-      var percent_complete = (e.loaded / e.total) * 100;
-      var button = document.getElementById('download_progress');
-      var txt = document.getElementById('download_txt');
-      button.style.width = percent_complete + '%';
-      if (percent_complete != 100)
-        txt.innerHTML = "Downloading... " + Math.round(percent_complete) + '% ';
-      else {
-        txt.innerHTML = "Downloaded " + percent_complete + '%';
-        button.style.width = '0%';
-      }
-      if (Math.round(percent_complete) == 50 && !gotFiftyPercent) {
-        gotFiftyPercent = true;
-        ga('send', {
-          hitType: 'event',
-          eventCategory: 'download_app',
-          eventAction: 'download_50',
-          eventLabel: src_broswer
-        });
-      }
-      // console.log("percent_complete ",percent_complete);
-    });
-    request.responseType = 'blob';
-    // request.open('get', 'QunamiV1.apk');
-    request.open('get', 'https://d2rfwiorfg5fzv.cloudfront.net/QunamiV1.apk');
-    // request.setRequestHeader('Access-Control-Allow-Origin','http://192.168.0.54:8000');
-
-    request.send();
-  }
-</script>
-
+   
+   
+    var src_b
+    var downloading = false; //to prevent multiple clicks on download button
+  
+    function ajaxDownload() {
+      var request = new XMLHttpRequest(),
+        gotFiftyPercent = false;
+      let src_broswer = src_b ? src_b : isWebView;
+      // console.log(src_b,src_broswer);
+      request.addEventListener('readystatechange', function (e) {
+        // alert(JSON.stringify(e));
+        if (request.readyState == 2 && request.status == 200) {
+          // Download is being started
+          ga('send', {
+            hitType: 'event',
+            eventCategory: 'download_app',
+            eventAction: 'download_started',
+            eventLabel: src_broswer
+          });
+          console.log("download_started")
+          // alert("down started");
+          downloading = true;
+  
+        } else if (request.readyState == 3) {
+          // Download is under progress
+          console.log("under progress");
+          // alert("under progress");
+  
+        } else if (request.readyState == 4) {
+          ga('send', {
+            hitType: 'event',
+            eventCategory: 'download_app',
+            eventAction: 'download_complete',
+            eventLabel: src_broswer
+          });
+  
+          download(request.response, 'qunami.apk', 'application/vnd.android.package-archive');
+          downloading = false;
+        }
+      });
+      request.addEventListener('progress', function (e) {
+        var percent_complete = (e.loaded / e.total) * 100;
+        var button = document.getElementById('download_progress');
+        var txt = document.getElementById('download_txt');
+        button.style.width = percent_complete + '%';
+        if (percent_complete != 100)
+          txt.innerHTML = "Downloading... " + Math.round(percent_complete) + '% ';
+        else {
+          txt.innerHTML = "Downloaded " + percent_complete + '%';
+          button.style.width = '0%';
+        }
+        if (Math.round(percent_complete) == 50 && !gotFiftyPercent) {
+          gotFiftyPercent = true;
+          ga('send', {
+            hitType: 'event',
+            eventCategory: 'download_app',
+            eventAction: 'download_50',
+            eventLabel: src_broswer
+          });
+        }
+        // console.log("percent_complete ",percent_complete);
+      });
+      request.responseType = 'blob';
+      // request.open('get', 'QunamiV1.apk');
+      request.open('get', 'https://d2rfwiorfg5fzv.cloudfront.net/QunamiV1.apk');
+      // request.setRequestHeader('Access-Control-Allow-Origin','http://192.168.0.54:8000');
+  
+      request.send();
+    }
+  </script>
+  
+</body>
 </html>
