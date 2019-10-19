@@ -1,45 +1,46 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8"/>
-    <title>Download App</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:title" content="Qunami app download" />
-    <meta property="og:url" content="http://qunami.co/download_app/" />
-    <meta property="og:image" content="https://i1.sndcdn.com/artworks-000290420004-cl8vbk-t500x500.jpg">
-    <meta property="og:image:width" content="300" />
-    <meta property="og:image:height" content="300" />
-    <meta property="og:type" content="website" />
-    <meta name="author" content="Gaurav Dhenwal" />
-    <script src="mobile-detect.min.js"></script>
-</head>
-<body onload="proceed()">
-<div class="ios-container">
 
-</div>
+<head>
+  <meta charset="utf-8" />
+  <title>Download App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="Qunami app download" />
+  <meta property="og:url" content="http://qunami.co/download_app/" />
+  <meta property="og:image" content="https://i1.sndcdn.com/artworks-000290420004-cl8vbk-t500x500.jpg">
+  <meta property="og:image:width" content="300" />
+  <meta property="og:image:height" content="300" />
+  <meta property="og:type" content="website" />
+  <meta name="author" content="Gaurav Dhenwal" />
+  <script src="mobile-detect.min.js"></script>
+</head>
+
+<body onload="proceed()">
+  <div class="ios-container">
+
+  </div>
 
 </body>
 <script type="text/javascript">
-var md = new MobileDetect(window.navigator.userAgent);
-var os  = md.os();
+  var md = new MobileDetect(window.navigator.userAgent);
+  var os = md.os();
 
 
-function proceed(){
-if(os === 'AndroidOS'){
-  //redirect to download_android_app
-  var href = "https://"+window.location.hostname+"/download_android_app/download.html"+window.location.search;
+  function proceed() {
+    if (os === 'AndroidOS') {
+      //redirect to download_android_app
+      var href = "https://" + window.location.hostname + "/download_android_app/download.html" + window.location.search;
 
-  window.location.href = href;
-}
-else if(os === 'iOS'){
-  var href = "https://"+window.location.hostname+"/download_ios_app/"+window.location.search;
-  window.location.href = href;
+      window.location.href = href;
+    } else if (os === 'iOS') {
+      var href = "https://" + window.location.hostname + "/download_ios_app/" + window.location.search;
+      window.location.href = href;
 
-}
-else{
-  //redirect to website
-  window.location.href = 'http://www.qunami.co/'
-}
-}
+    } else {
+      //redirect to website
+      window.location.href = 'http://www.qunami.co/'
+    }
+  }
 </script>
+
 </html>

@@ -64,7 +64,7 @@ window.Clipboard = (function (window, document, navigator) {
     }
   }
 
-  
+
 
   function copyToClipboard() {
     document.execCommand('copy');
@@ -224,6 +224,8 @@ function ajaxDownload() {
       downloading = false;
       document.getElementById('download_button').style.display = 'block';
       document.getElementById('download_bar').style.display = 'none';
+      document.getElementById('download_bar_outline').style.display = 'none';
+
     }
   });
   request.addEventListener('progress', function (e) {

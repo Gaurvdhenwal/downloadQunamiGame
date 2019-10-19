@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<!-- This site was created in Webflow. http://www.webflow.com -->
-<!-- Last Published: Mon Jul 02 2018 13:19:37 GMT+0000 (UTC) -->
 <html>
 
 <head>
@@ -14,7 +12,8 @@
   <link rel="stylesheet" href="download_v3.css" />
   <link rel="stylesheet" href="animate.css" />
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css"/>
+  <link rel="stylesheet" type="text/css"
+    href="https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css" />
   <script src="download_file.js"></script>
   <script src="mobile-detect.min.js"></script>
   <style>
@@ -23,13 +22,15 @@
       font-style: normal;
       src: url(font/Alberto-Regular.ttf);
     }
-    .slick-dots li button:before{
+
+    .slick-dots li button:before {
       /* color:#fff; */
       border: 2px solid #fff;
       border-radius: 50%;
 
     }
-    .slick-dots li.slick-active button:before{
+
+    .slick-dots li.slick-active button:before {
       /* color: #fff; */
       border-radius: 50%;
       opacity: 1;
@@ -57,7 +58,7 @@
       'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '919414801497495');
     fbq('init', '2388545861389490');
-    
+
     fbq('track', 'PageView');
     fbq('trackCustom', 'download_app_page_load');
   </script>
@@ -98,104 +99,156 @@
   <!-- End Google Analytics -->
 
 </head>
+
 <body onload="checkDownload()">
-    <div class="section-slider">
-        
-        <div>
-            <div class="step-header">
-                <div class="step"><img src="images/steps/step1.svg" /></div>
-                <div class="instruct-txt">
-                 Please wait for download to complete
-                </div>
-            </div>
-            <div class="instruct-img">
-                <img src="images/steps/0.svg"/>
-            </div>
+  <div class="section-slider">
+
+    <div>
+      <div class="step-header">
+        <div class="step"><img src="images/steps/step1.svg" /></div>
+        <div class="instruct-txt">
+          Please wait for download to complete
         </div>
-        <div>
-            <div class="step-header">
-                <div class="step"><img src="images/steps/step2.svg" /></div>
-                <div class="instruct-txt">
-                    Press on "OKAY" button to continue
-                </div>
-            </div>
-            <div class="instruct-img">
-                <img src="images/steps/1.gif" />
-            </div>
-        </div>
-        <div>
-            <div class="step-header">
-                <div class="step"><img src="images/steps/step3.svg" /></div>
-                <div class="instruct-txt">
-                   Press on the "OPEN" text next!
-                </div>
-            </div>
-            <div class="instruct-img">
-                <img src="images/steps/2.gif" />
-            </div>
-        </div>
-        <div>
-            <div class="step-header">
-                <div class="step"><img src="images/steps/step4.svg" /></div>
-                <div class="instruct-txt">
-                    Press on the "SETTINGS" text here to allow install.
-                </div>
-            </div>
-            <div class="instruct-img">
-                <img src="images/steps/3.gif" />
-            </div>
-        </div>
-        <div>
-            <div class="step-header">
-                <div class="step"><img src="images/steps/step5.svg" /></div>
-                <div class="instruct-txt">
-                   Press on the "SWITCH" & then press on the "BACK" icon.
-                </div>
-            </div>
-            <div class="instruct-img">
-                <img src="images/steps/4.gif" />
-            </div>
-        </div>
-        <div>
-            <div class="step-header">
-                <div class="step"><img src="images/steps/step6.svg" /></div>
-                <div class="instruct-txt">
-                   Press on the text "INSTALL" to start the installation.
-                </div>
-            </div>
-            <div class="instruct-img">
-                <img src="images/steps/5.gif" />
-            </div>
-        </div>
-        <div>
-            <div class="step-header">
-                <div class="step"><img src="images/steps/step7.svg" /></div>
-                <div class="instruct-txt">
-                   Press on the text "OPEN" to start the ADVENTURE!
-                </div>
-            </div>
-            <div class="instruct-img">
-                <img src="images/steps/6.gif" />
-            </div>
-        </div>
-        
+      </div>
+      <div class="instruct-img">
+        <img src="images/steps/0.svg" />
+      </div>
     </div>
-    <div class="download_cont">
-        <img src="images/ic_qunami_white.svg" class="qunami_logo" alt="qunami log"/>
-        <h2 class="logo_subtxt">The best quiz app with 1 lakh+ users</h2>
-        <div class="download_bar" id="download_bar">
-            <div class="download_progress_bar" id="download_progress_bar">
-            </div>
-            <h2 id="download_text">Starting Download...</h2>
+    <div>
+      <div class="step-header">
+        <div class="step"><img src="images/steps/step2.svg" /></div>
+        <div class="instruct-txt">
+          Press on "OKAY" button to continue
         </div>
-        <button onclick="javascript:Clipboard.copy(window.location.href);getApp();" class="download_button" id="download_button"
-        target="_new">OPEN APP</button>
+      </div>
+      <div class="instruct-img">
+        <img src="images/steps/1.gif" />
+      </div>
     </div>
+    <div>
+      <div class="step-header">
+        <div class="step"><img src="images/steps/step3.svg" /></div>
+        <div class="instruct-txt">
+          Press on the "OPEN" text next!
+        </div>
+      </div>
+      <div class="instruct-img">
+        <img src="images/steps/2.gif" />
+      </div>
+    </div>
+    <div>
+      <div class="step-header">
+        <div class="step"><img src="images/steps/step4.svg" /></div>
+        <div class="instruct-txt">
+          Press on the "SETTINGS" text here to allow install.
+        </div>
+      </div>
+      <div class="instruct-img">
+        <img src="images/steps/3.gif" />
+      </div>
+    </div>
+    <div>
+      <div class="step-header">
+        <div class="step"><img src="images/steps/step5.svg" /></div>
+        <div class="instruct-txt">
+          Press on the "SWITCH" & then press on the "BACK" icon.
+        </div>
+      </div>
+      <div class="instruct-img">
+        <img src="images/steps/4.gif" />
+      </div>
+    </div>
+    <div>
+      <div class="step-header">
+        <div class="step"><img src="images/steps/step6.svg" /></div>
+        <div class="instruct-txt">
+          Press on the text "INSTALL" to start the installation.
+        </div>
+      </div>
+      <div class="instruct-img">
+        <img src="images/steps/5.gif" />
+      </div>
+    </div>
+    <div>
+      <div class="step-header">
+        <div class="step"><img src="images/steps/step7.svg" /></div>
+        <div class="instruct-txt">
+          Press on the text "OPEN" to start the ADVENTURE!
+        </div>
+      </div>
+      <div class="instruct-img">
+        <img src="images/steps/6.gif" />
+      </div>
+    </div>
+
+  </div>
+  <div class="download_cont">
+    <img src="images/ic_qunami_white.svg" class="qunami_logo" alt="qunami log" />
+    <h2 class="logo_subtxt">The best quiz app with 1 lakh+ users</h2>
+    <div class="download_bar_outline" id="download_bar_outline">
+      <img src="images/new/loader_outline.png" />
+    </div>
+    <div class="download_bar" id="download_bar">
+      <div class="download_progress_bar" id="download_progress_bar">
+      </div>
+      <h2 id="download_text">Starting Download...</h2>
+    </div>
+    <!-- <button onclick="javascript:Clipboard.copy(window.location.href);getApp();" class="download_button" id="download_button"
+        target="_new">OPEN APP</button> -->
+    <img src="images/new/open.png" target="_new" onclick="javascript:Clipboard.copy(window.location.href);getApp();"
+      class="download_button" id="download_button" />
+  </div>
+  <div class="ticker_cont">
+    <img class="ticker-hash" src="images/new/topper_tag.png">
+    <div class="ticker_list">
+      <div class="ticker-elem">
+        <img class="ticker-ui" src="images/new/ticker/ahmad_iqbal.png"> Ahmad won <span>₹600</span>
+      </div>
+      <div class="ticker-elem">
+        <img class="ticker-ui" src="images/new/ticker/amar_sharma.png"> Amar won <span>₹500</span>
+      </div>
+      <div class="ticker-elem">
+        <img class="ticker-ui" src="images/new/ticker/ankit.png"> Ankit won <span>₹2000</span>
+      </div>
+      <div class="ticker-elem">
+        <img class="ticker-ui" src="images/new/ticker/ankur_sharma.png"> Ankur won <span>₹1200</span>
+      </div>
+      <div class="ticker-elem">
+        <img class="ticker-ui" src="images/new/ticker/deepak_saxena.png"> Deepak won <span>₹500</span>
+      </div>
+      <div class="ticker-elem">
+        <img class="ticker-ui" src="images/new/ticker/devraj.png"> Dev won <span>₹1000</span>
+      </div>
+      <div class="ticker-elem">
+        <img class="ticker-ui" src="images/new/ticker/habib.png"> Habib won <span>₹1800</span>
+      </div>
+      <div class="ticker-elem">
+        <img class="ticker-ui" src="images/new/ticker/himanshu_jayant.png"> Himanshu won <span>₹1100</span>
+      </div>
+      <div class="ticker-elem">
+        <img class="ticker-ui" src="images/new/ticker/yohita-saini.png"> Yogita won <span>₹1200</span>
+      </div>
+      <div class="ticker-elem">
+        <img class="ticker-ui" src="images/new/ticker/pooja_bisht.png"> Pooja won <span>₹1300</span>
+      </div>
+      <div class="ticker-elem">
+        <img class="ticker-ui" src="images/new/ticker/ahmad_iqbal.png"> Ahmad won <span>₹600</span>
+      </div>
+      <div class="ticker-elem">
+        <img class="ticker-ui" src="images/new/ticker/amar_sharma.png"> Amar won <span>₹500</span>
+      </div>
+      <div class="ticker-elem">
+        <img class="ticker-ui" src="images/new/ticker/ankit.png"> Ankit won <span>₹2000</span>
+      </div>
+      <div class="ticker-elem">
+        <img class="ticker-ui" src="images/new/ticker/ankur_sharma.png"> Ankur won <span>₹1200</span>
+      </div>
+    </div>
+
+  </div>
 </body>
-<script
-  src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-  integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
-  crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+  integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
 <script src="download_v3.js" type="text/javascript"></script>
@@ -214,4 +267,5 @@
   //   )
   // }
 </script>
+
 </html>

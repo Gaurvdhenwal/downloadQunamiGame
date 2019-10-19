@@ -1,9 +1,10 @@
-body{
+body {
     background: url('./images/bg_glitter_v2.png');
     background-repeat: no-repeat;
     background-size: cover;
 }
-.main-cont{
+
+.main-cont {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11,18 +12,21 @@ body{
     height: 100vmax;
     width: 100vmin;
 }
-.top-header-logo img{
+
+.top-header-logo img {
     width: 35vw;
     margin: 5vh;
     margin-bottom: 8vh;
 }
-.cash-icon{
+
+.cash-icon {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-.cash-txt{
+
+.cash-txt {
     font-family: 'Roboto Condensed', sans-serif;
     color: #f2dcb8;
     text-align: center;
@@ -32,19 +36,22 @@ body{
     letter-spacing: 3px;
 
 }
-.cash-logo img{
+
+.cash-logo img {
     width: 75vw;
     margin-top: 8px;
     margin-bottom: 10px;
 }
-.button{
+
+.button {
     width: 56vw;
     margin-top: 20px;
     animation: blur infinite 1s;
     /* filter: drop-shadow(0px 0px 10px #f2dcb8); */
     /* filter: drop-shadow(0px 0px 10px #f2dcb8); */
 }
-.u-name{
+
+.u-name {
     font-family: 'Roboto Condensed', sans-serif;
     color: #f2dcb8;
     text-align: center;
@@ -54,7 +61,8 @@ body{
     margin-top: 10px;
     letter-spacing: 1px;
 }
-.u-prize{
+
+.u-prize {
     font-family: 'Roboto Condensed', sans-serif;
     color: #f2dcb8;
     text-align: center;
@@ -62,20 +70,24 @@ body{
     font-size: 23px;
     margin: 0px;
 }
-@media(max-width:320px){
-    .u-name{
+
+@media(max-width:320px) {
+    .u-name {
         font-size: 11px;
         letter-spacing: 0px;
     }
-    .u-prize{
+
+    .u-prize {
         font-size: 18px;
     }
 }
-.winners-cont{
+
+.winners-cont {
     padding-top: 9vh;
     /* padding-bottom: 0vh; */
 }
-.winner-header{
+
+.winner-header {
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 1.2rem;
     font-weight: 300;
@@ -85,19 +97,22 @@ body{
     margin-bottom: 1.2rem;
     letter-spacing: 3px;
 }
-.winner-card{
-    margin:auto;
+
+.winner-card {
+    margin: auto;
     width: 22vw;
 }
 
-@keyframes blur{
-    0%{
-        filter:drop-shadow(0px 0px 1px #fff600);
+@keyframes blur {
+    0% {
+        filter: drop-shadow(0px 0px 1px #fff600);
     }
-    50%{
-        filter:drop-shadow(0px 0px 8px #fff600);        
+
+    50% {
+        filter: drop-shadow(0px 0px 8px #fff600);
     }
-    100%{
-        filter:drop-shadow(0px 0px 0px #fff600);        
+
+    100% {
+        filter: drop-shadow(0px 0px 0px #fff600);
     }
 }
